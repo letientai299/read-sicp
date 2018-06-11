@@ -18,11 +18,16 @@
 - [.] 1.2 Procedures and the Processes They Generate
   - [X] 1.2.1 Linear Recursion and Iteration
     - Recursive: operate on the result of the called function, after calling it.
-    - Iterative: operate on the argument of the called function, before calling
+    - Iteractive: operate on the argument of the called function, before calling
       it.
     - What is Ackermann function? How useful is it? And why do I see it many
       so times without knowing its usage?
-  - [ ] 1.2.2 Tree Recursion
+  - [X] 1.2.2 Tree Recursion
+    - Here we learn about the classic Fibonacci.
+    - The "Counting change" example feels like old BFS examples that I used to
+      solved during CS course.
+    - Tree recursive is easy to implemented than Iteractive process.
+    - Are there any Iteractive solution for the count-change?
   - [ ] 1.2.3 Orders of Growth
   - [ ] 1.2.4 Exponentiation
   - [ ] 1.2.5 Greatest Common Divisors
@@ -34,7 +39,6 @@
   - [ ] 1.3.4 Procedures as Returned Values
 
 = 2 Building Abstractions with Data =
-
 
 - [ ] 2.1 Introduction to Data Abstraction
   - [ ] 2.1.1 Example: Arithmetic Operations for Rational Numbers
