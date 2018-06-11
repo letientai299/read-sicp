@@ -40,7 +40,11 @@
       - Ω is used for lower bound.
       - Don't know why big-O is popular instead of Θ, while Θ should be the
         thing we consider when analyze the complexity of algorithm.
-  - [ ] 1.2.4 Exponentiation
+  - [X] 1.2.4 Exponentiation
+    - ~~I don't get it. Why compute `b^n` is `Θ(n)` space? It should be `Θ(1)` to
+      me.~~ I get it now, thanks to https://cs.stackexchange.com/a/44602
+    - `f(n)` consumes 1 more than `f(n-1)`, thus the space is `Θ(n)`
+    - I really miss the side effect of `println` or `console.log()`.
   - [ ] 1.2.5 Greatest Common Divisors
   - [ ] 1.2.6 Example: Testing for Primality
 - [ ] 1.3 Formulating Abstractions with Higher-Order Procedures
