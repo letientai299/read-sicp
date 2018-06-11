@@ -15,7 +15,7 @@
   - [X] 1.1.6 Conditional Expressions and Predicates
   - [X] 1.1.7 Example: Square Roots by Newton�s Method
   - [X] 1.1.8 Procedures as Black-Box Abstractions
-- [.] 1.2 Procedures and the Processes They Generate
+- [o] 1.2 Procedures and the Processes They Generate
   - [X] 1.2.1 Linear Recursion and Iteration
     - Recursive: operate on the result of the called function, after calling it.
     - Iteractive: operate on the argument of the called function, before calling
@@ -28,7 +28,18 @@
       solved during CS course.
     - Tree recursive is easy to implemented than Iteractive process.
     - Are there any Iteractive solution for the count-change?
-  - [ ] 1.2.3 Orders of Growth
+  - [X] 1.2.3 Orders of Growth
+    - `R(n) = Θ(f(n))` if there's `k1` and `k2` such that `R(n)` is sandwiched
+      between `k1.f(n)` and `k2.f(n)`
+    - How to debug in Racket?
+    - How to return multiple values (for log debugging)?
+    - And how to have side-effect (print to console) feature in racket?
+    - Now sure where's the first place I read those, but:
+      - Θ is used for sandwiched.
+      - Ο is used for upper bound, and
+      - Ω is used for lower bound.
+      - Don't know why big-O is popular instead of Θ, while Θ should be the
+        thing we consider when analyze the complexity of algorithm.
   - [ ] 1.2.4 Exponentiation
   - [ ] 1.2.5 Greatest Common Divisors
   - [ ] 1.2.6 Example: Testing for Primality
