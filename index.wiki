@@ -46,6 +46,13 @@
     - `f(n)` consumes 1 more than `f(n-1)`, thus the space is `Θ(n)`
     - I really miss the side effect of `println` or `console.log()`.
   - [ ] 1.2.5 Greatest Common Divisors
+    - It's funny when you are working through SICP, and they mention TAOCP,
+      which you also working through as the same time. I' choose to work on
+      SICP because Knuth volume 1 requires too much Math, such that I can't
+      programming. And SICP seems easier to code. Doing both seems a good
+      balance between hand writing mathematic and proramming in a completely
+      new language.
+    - How to prove Lamé's Theorem?
   - [ ] 1.2.6 Example: Testing for Primality
 - [ ] 1.3 Formulating Abstractions with Higher-Order Procedures
   - [ ] 1.3.1 Procedures as Arguments
