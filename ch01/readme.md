@@ -7,6 +7,9 @@
 - [x] 1.1.3 Evaluating Combinations
 - [x] 1.1.4 Compound Procedures
 - [x] 1.1.5 The Substitution Model for Procedure Application
+  - Substitution models:
+    - Normal order: fully expand before reduce.
+    - Applicative order: **evaluate the argument** before apply
 - [x] 1.1.6 Conditional Expressions and Predicates
 - [x] 1.1.7 Example: Square Roots by Newton�s Method
 - [x] 1.1.8 Procedures as Black-Box Abstractions
@@ -50,7 +53,7 @@
   - `f(n)` consumes 1 more than `f(n-1)`, thus the space is `Θ(n)`
   - I really miss the side effect of `println` or `console.log()`.
 
-- [ ] 1.2.5 Greatest Common Divisors
+- [x] 1.2.5 Greatest Common Divisors
 
   - It's funny when you are working through SICP, and they mention TAOCP,
     which you also working through as the same time. I' choose to work on
