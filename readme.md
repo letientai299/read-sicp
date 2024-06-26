@@ -1,19 +1,40 @@
-# Solution as code for SICP
+# Reading SICP
+
+## About
 
 The book: http://sarabander.github.io/sicp/
 
-The code is written using `#lang racket/base`. I actually don't know much about
-Racket (and Scheme), just learn enough to walk thought he book. I only implement
-the exercises that I found interesting and won't take so much time. For purely
-mathematical problems (like 1.13), I won't type down the solution (too lazy,
-also, vimwiki and markdown don't support Math well).
+This repo contains my reading notes and solutions for the excersices.
 
-Study note is mostly random though, open questions and aha moments. It won't be
-helpful if you plan to get knowledge from the book without read it.
+The notes are mostly snippsets, thoughts, summaries... They are intended for me
+to quickly revisit the content some years later. They might not be helpful for
+you if you haven't read the books.
 
-## Structure
+The solution code is written in Racket, hopefully sufficiently documented and
+tested. I aim to learn enough Racket to complete the book, as well as writing
+something useful (in the context of this repo) with it.
 
-In general, each folder related to a chapter in the book. These are exceptions:
+## Tools
 
-- [meta](./meta): examples code for practicing Racket language, package
-  managements, unit test. They're not directly related to the book.
+[Racket](https://racket-lang.org), with followin packages:
+
+- [`fmt`](https://docs.racket-lang.org/fmt/): to have `raco fmt` for formatting
+  racket code.
+- [`racket-langserver`](https://github.com/jeapostrophe/racket-langserver): to
+  have some editor supports when using Vim/VsCode.
+
+## Notes and status
+
+- [Chapter 1](./ch01/readme.md)
+
+## Racket tips
+
+### Pretty print struct
+
+Use `#:transparent` to make the struct accessible for low-level inspection for
+printing, helpful to define named test cases, see [`1.3.rkt`](./ch01/1.3.rkt).
+
+```racket
+(struct args (a b c) #:transparent)
+(print (args 1 2 3))
+```
