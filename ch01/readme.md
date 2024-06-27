@@ -84,7 +84,7 @@ Shorter
 _Predicate_: procedure that return true or false, or expression that evaluate to
 true or false.
 
-### Exercises
+#### Exercises
 
 - [1.1](./1.1.md)
 - [1.2](./1.2.md)
@@ -93,6 +93,21 @@ true or false.
 - [1.5](./1.5.md)
 
 ### 1.1.7 Example: Square Roots by Newton's Method
+
+Unlike mathematical functions, _procedures must be effective_.
+
+| Math function               | Computer procedure       |
+| --------------------------- | ------------------------ |
+| Describe property of things | Describe how to do thing |
+| Declarative                 | Imperative               |
+
+Radicand: the $x$ in $\sqrt{x}$ (I'm not familiar with math in English).
+
+#### Exercises
+
+- [1.6](./1.6.md)
+- [1.7](./1.7.md)
+- [1.8](./1.8.md)
 
 ### 1.1.8 Procedures as Black-Box Abstractions
 

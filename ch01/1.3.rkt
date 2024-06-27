@@ -18,9 +18,8 @@
 (top2-squared 1 2 2)
 
 (module+ test
-  (require rackunit))
+  (require rackunit)
 
-(module+ test
   (struct args (a b c) #:transparent)
   (struct case (struct:args want) #:transparent)
   (define cases
@@ -33,7 +32,10 @@
 
   (for-each (lambda (c)
               (test-case (format "~V" c)
-                (define give (case-struct:args c))
-                (define got (top2-squared (args-a give) (args-b give) (args-c give)))
-                (check-eq? got (case-want c))))
+                         (define give (case-struct:args c))
+                         (define got
+                           (top2-squared (args-a give)
+                                         (args-b give)
+                                         (args-c give)))
+                         (check-eq? got (case-want c))))
             cases))

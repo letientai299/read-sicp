@@ -20,8 +20,20 @@ something useful (in the context of this repo) with it.
 
 - [`fmt`](https://docs.racket-lang.org/fmt/): to have `raco fmt` for formatting
   racket code.
+
+  This tool supports a configuration file `.fmt.rkt`. However, I don't use it
+  because: the config is Racket code, not some typical `ini` or command line
+  option lists; the tool doesn't walk up to find the file in git root. Hence, I
+  hard code the command line option in my editor to be equivalent to this:
+
+  ```
+  raco fmt --limit 60 --width 80
+  ```
+
 - [`racket-langserver`](https://github.com/jeapostrophe/racket-langserver): to
   have some editor supports when using Vim/VsCode.
+- [`debug`](https://docs.racket-lang.org/debug/index.html): to quickly show the
+  expression and its value.
 
 ## Notes and status
 
