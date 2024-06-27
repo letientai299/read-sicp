@@ -18,6 +18,22 @@ Mechanisms to combine simple ideas to form more complex ideas.
 - Means of **combination**
 - Means of **abstraction**: compound elements can be named and used as units.
 
+Footnote 4 is eye-opening: number is not so _simple_. It's, in fact, one of a
+trickiest and confusing aspect of any programming language.
+
+- Is $2$ same or different with $2.0$?
+- $6/2$ results in $2$ or $2.0$?
+- Physical limitation of representing a large number
+- ...
+
+These links might be relevant on this topic:
+
+- [Mathematician Reveals 'Equals' Has More Than One Meaning in Math](https://www.sciencealert.com/mathematician-reveals-equals-has-more-than-one-meaning-in-math)
+  - [HN discussion](https://news.ycombinator.com/item?id=40702895)
+    - [This particular thread on whether 1 integer is the same with 1 real number](https://news.ycombinator.com/item?id=40714090)
+- [Are real numbers real?](https://ptolemy.berkeley.edu/~eal/pnerd/blog/are-real-numbers-real.html)
+  - [HN discussion](https://news.ycombinator.com/item?id=33316803)
+
 ### 1.1.1 Expressions
 
 Prefix notation advantages:
@@ -34,7 +50,26 @@ Prefix notation advantages:
   simple general rule together with specialized rule for a small number of
   special forms (`define` is one of them).
 
+The more syntactic sugar, the less uniform of the language. Great quote.
+
+> Syntactic sugar causes cancer of the semicolon.
+> -- Alan Perlis,
+
 ### 1.1.4 Compound Procedures
+
+There's 2 different actions being combined in the line:
+
+```racket
+(define (square x) (* x x))
+```
+
+- _Creating_ a procedure
+- Give it a name
+
+It's important to be able to separate these 2 actions, so that:
+
+- We could create a procedure without giving it a name, i.e. Anonymous function.
+- We could give a name to an existed procedure, i.e. Higher-order function.
 
 ### 1.1.5 The Substitution Model for Procedure Application
 
@@ -103,6 +138,9 @@ Unlike mathematical functions, _procedures must be effective_.
 
 Radicand: the $x$ in $\sqrt{x}$ (I'm not familiar with math in English).
 
+The algorithm discussed in this section is just a special case of Newton's
+method to find roots of equations.
+
 #### Exercises
 
 - [1.6](./1.6.md)
@@ -110,6 +148,51 @@ Radicand: the $x$ in $\sqrt{x}$ (I'm not familiar with math in English).
 - [1.8](./1.8.md)
 
 ### 1.1.8 Procedures as Black-Box Abstractions
+
+A procedure definition should be able to suppress detail. The users may consider
+it a _black box_, be able to use it without knowing how it's implemented.
+
+Both of these compute the square of a number, to illustrate the black box idea.
+
+```racket
+(define (square x) (* x x))
+
+(define (square x)
+  (exp (double (log x))))
+(define (double x)
+  (+ x x))
+
+```
+
+The 2nd version is $square(x) = 2^{2*\log_2{x}}$. Proof:
+
+$$
+\begin{align}
+& \text{Let } y = \log_2(x)
+\\
+& \text{then } 2^{2y} = (2^{y})^2 = x^2
+\end{align}
+$$
+
+From [footnote 25](https://sarabander.github.io/sicp/html/1_002e1.xhtml#DOCF25),
+despite 2nd version is more complicated, it might be even faster than the
+obvious version if the hardware has extensive and efficient tables of logarithms
+and antilogarithms.
+
+Kinds of variable:
+
+- **Bound**: variables that is formally defined by the procedure signature, or
+  within a _scope_.
+- **Free**: unbounded variables.
+
+Nesting of procedure definitions is called **block structure**. It's the
+solution for name-packaging problem, and also provide the benefit of simplify
+internal procedures by make use of enclosing procedure scoped variables, e.g.
+**lexical scoping**.
+
+> Free variables in a procedure are taken to refer to bindings made by enclosing
+> procedure definitions; that is, they are looked up in the environment in which
+> the procedure was defined).
 
 ## 1.2 Procedures and the Processes They Generate
 

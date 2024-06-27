@@ -5,7 +5,7 @@
 ; sqrt implements the Newton's Square Root algorithm from the book.
 ; The different is the epsilon is externalized and much smaller.
 (define (sqrt x)
-  (sqrt-iter 1 x))
+  (sqrt-iter 1.0 x))
 
 (define (sqrt-iter guess x)
   (if (good-enough? guess x)
