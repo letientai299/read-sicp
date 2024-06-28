@@ -2,7 +2,9 @@
 
 ## About
 
-The book: http://sarabander.github.io/sicp/
+The [wizard][wiki] book: http://sarabander.github.io/sicp/
+
+[wiki]: https://en.wikipedia.org/wiki/SICP
 
 This repo contains my reading notes and solutions for the excersices.
 
