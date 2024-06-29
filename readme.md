@@ -6,9 +6,9 @@ The [wizard][wiki] book: http://sarabander.github.io/sicp/
 
 [wiki]: https://en.wikipedia.org/wiki/SICP
 
-This repo contains my reading notes and solutions for the excersices.
+This repo contains my reading notes and solutions for the exercises.
 
-The notes are mostly snippsets, thoughts, summaries... They are intended for me
+The notes are mostly snippets, thoughts, summaries... They are intended for me
 to quickly revisit the content some years later. They might not be helpful for
 you if you haven't read the books.
 
@@ -18,7 +18,7 @@ something useful (in the context of this repo) with it.
 
 ## Tools
 
-[Racket](https://racket-lang.org), with followin packages:
+[Racket](https://racket-lang.org), with following packages:
 
 - [`fmt`](https://docs.racket-lang.org/fmt/): to have `raco fmt` for formatting
   racket code.

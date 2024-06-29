@@ -3,29 +3,29 @@
 <!-- toc -->
 
 - [1.1 The Elements of Programming](#11-the-elements-of-programming)
-  * [1.1.1 Expressions](#111-expressions)
-  * [1.1.2 Naming and the Environment](#112-naming-and-the-environment)
-  * [1.1.3 Evaluating Combinations](#113-evaluating-combinations)
-  * [1.1.4 Compound Procedures](#114-compound-procedures)
-  * [1.1.5 The Substitution Model for Procedure Application](#115-the-substitution-model-for-procedure-application)
-  * [1.1.6 Conditional Expressions and Predicates](#116-conditional-expressions-and-predicates)
-    + [Exercises](#exercises)
-  * [1.1.7 Example: Square Roots by Newton's Method](#117-example-square-roots-by-newtons-method)
-    + [Exercises](#exercises-1)
-  * [1.1.8 Procedures as Black-Box Abstractions](#118-procedures-as-black-box-abstractions)
+  - [1.1.1 Expressions](#111-expressions)
+  - [1.1.2 Naming and the Environment](#112-naming-and-the-environment)
+  - [1.1.3 Evaluating Combinations](#113-evaluating-combinations)
+  - [1.1.4 Compound Procedures](#114-compound-procedures)
+  - [1.1.5 The Substitution Model for Procedure Application](#115-the-substitution-model-for-procedure-application)
+  - [1.1.6 Conditional Expressions and Predicates](#116-conditional-expressions-and-predicates)
+    - [Exercises](#exercises)
+  - [1.1.7 Example: Square Roots by Newton's Method](#117-example-square-roots-by-newtons-method)
+    - [Exercises](#exercises-1)
+  - [1.1.8 Procedures as Black-Box Abstractions](#118-procedures-as-black-box-abstractions)
 - [1.2 Procedures and the Processes They Generate](#12-procedures-and-the-processes-they-generate)
-  * [1.2.1 Linear Recursion and Iteration](#121-linear-recursion-and-iteration)
-    + [Exercises](#exercises-2)
-  * [1.2.2 Tree Recursion](#122-tree-recursion)
-  * [1.2.3 Orders of Growth](#123-orders-of-growth)
-  * [1.2.4 Exponentiation](#124-exponentiation)
-  * [1.2.5 Greatest Common Divisors](#125-greatest-common-divisors)
-  * [1.2.6 Example: Testing for Primality](#126-example-testing-for-primality)
+  - [1.2.1 Linear Recursion and Iteration](#121-linear-recursion-and-iteration)
+    - [Exercises](#exercises-2)
+  - [1.2.2 Tree Recursion](#122-tree-recursion)
+  - [1.2.3 Orders of Growth](#123-orders-of-growth)
+  - [1.2.4 Exponentiation](#124-exponentiation)
+  - [1.2.5 Greatest Common Divisors](#125-greatest-common-divisors)
+  - [1.2.6 Example: Testing for Primality](#126-example-testing-for-primality)
 - [1.3 Formulating Abstractions with Higher-Order Procedures](#13-formulating-abstractions-with-higher-order-procedures)
-  * [1.3.1 Procedures as Arguments](#131-procedures-as-arguments)
-  * [1.3.2 Constructing Procedures Using Lambda](#132-constructing-procedures-using-lambda)
-  * [1.3.3 Procedures as General Methods](#133-procedures-as-general-methods)
-  * [1.3.4 Procedures as Returned Values](#134-procedures-as-returned-values)
+  - [1.3.1 Procedures as Arguments](#131-procedures-as-arguments)
+  - [1.3.2 Constructing Procedures Using Lambda](#132-constructing-procedures-using-lambda)
+  - [1.3.3 Procedures as General Methods](#133-procedures-as-general-methods)
+  - [1.3.4 Procedures as Returned Values](#134-procedures-as-returned-values)
 
 <!-- tocstop -->
 
@@ -47,7 +47,7 @@ Mechanisms to combine simple ideas to form more complex ideas.
 - Means of **combination**
 - Means of **abstraction**: compound elements can be named and used as units.
 
-Footnote 4 is eye-opening: number is not so _simple_. It's, in fact, one of a
+Footnote 4 is eye-opening: number is not so _simple_. It's, in fact, one of the
 trickiest and confusing aspect of any programming language.
 
 - Is $2$ same or different with $2.0$?
@@ -111,7 +111,7 @@ It's important to be able to separate these 2 actions, so that:
   - Helps with the thinking process, not actually how the interpreter works.
   - There are more evaluation models.
 - Evaluations orders:
-  - **Normal** order: _fully expand before reduce_, can leads to duplicated
+  - **Normal** order: _fully expand before reduce_, can lead to duplicated
     evaluations.
   - **Applicative** order: _evaluate the argument before apply_
   - The 2 orders don't always yield the same result.
@@ -151,11 +151,11 @@ true or false.
 
 #### Exercises
 
-- [1.1](./1.1.md)
-- [1.2](./1.2.md)
-- [1.3](./1.3.md)
-- [1.4](./1.4.md)
-- [1.5](./1.5.md)
+- [x] [1.1](./1.1.md)
+- [x] [1.2](./1.2.md)
+- [x] [1.3](./1.3.md)
+- [x] [1.4](./1.4.md)
+- [x] [1.5](./1.5.md)
 
 ### 1.1.7 Example: Square Roots by Newton's Method
 
@@ -173,9 +173,9 @@ method to find roots of equations.
 
 #### Exercises
 
-- [1.6](./1.6.md)
-- [1.7](./1.7.md)
-- [1.8](./1.8.md)
+- [x] [1.6](./1.6.md)
+- [x] [1.7](./1.7.md)
+- [x] [1.8](./1.8.md)
 
 ### 1.1.8 Procedures as Black-Box Abstractions
 
@@ -222,14 +222,14 @@ internal procedures by make use of enclosing procedure scoped variables, e.g.
 
 > Free variables in a procedure are taken to refer to bindings made by enclosing
 > procedure definitions; that is, they are looked up in the environment in which
-> the procedure was defined).
+> the procedure was defined.
 
 ## 1.2 Procedures and the Processes They Generate
 
 https://sarabander.github.io/sicp/html/1_002e2.xhtml#g_t1_002e2
 
 After 1.1, we know: primitive arithmetic operations, how to combine them, define
-compound procedures. We still lacking
+compound procedures. We're still lacking
 
 - Knowledge of common patterns (which procedures are worth defining).
 - Experience to predict the consequences of executing procedures.
@@ -261,7 +261,7 @@ Example _shapes_ of 2 methods for [`./factorials.rkt`](./factorials.rkt).
   ```
 
 - Iteration: stack stays the same, all information are maintained using
-  variables, program can resumes from any particular step.
+  variables, program can resume from any particular step.
 
   ```racket
   (fact 2)
@@ -271,53 +271,122 @@ Example _shapes_ of 2 methods for [`./factorials.rkt`](./factorials.rkt).
   ```
 
 Don't confuse between a recursive _process_ and a recursive _procedure_. `iter`
-is a recursive procedure, but its process generating an _iteractive_ pattern.
+is a recursive procedure, but its process generating an _iterative_ pattern.
 Languages, compilers or runtime that support _tail-recursive_ will execute those
-recursive but iteractive processes using constant space, i.e. [Tail call
-optimization](https://en.wikipedia.org/wiki/Tail_call).
+recursive but iterative processes using constant space, i.e.
+[Tail call optimization](https://en.wikipedia.org/wiki/Tail_call).
 
 #### Exercises
 
-- [1.9](./1.9.md)
-- [1.10](./1.10.md)
+- [x] [1.9](./1.9.md)
+- [x] [1.10](./1.10.md)
 
 ### 1.2.2 Tree Recursion
 
-- Here we learn about the classic Fibonacci.
-- The "Counting change" example feels like old BFS examples that I used to
-  solved during CS course.
-- Tree recursive is easy to implemented than Iteractive process.
-- Are there any Iteractive solution for the count-change?
+**Fibonacci sequence**
+
+- Recursive implementation:
+  - Time grow exponentially
+  - Space grows linearly with the input.
+- Linear implementation:
+  - Requires noticing that the computation could be recast as an iteration with
+    3 state variables.
+
+_Golden ratio_ is the value $\varphi$ that satisfy the following equation:
+
+$$
+\varphi^2 = \varphi + 1
+$$
+
+See [`./fib.rkt`](./fib.rkt) for all 3 implementation versions: terrible, linear
+and $O(1)$.
+
+> TODO (tai): implement 3 versions of fib.
+
+**Counting change**
+
+- Can be done using BFS
+- It's also [Leetcode 518 - Coin Change II][lc-518], a classic _Dynamic
+  Programming_ problem.
+- Footnote 34 mention the _tabulation_ (or more commonly, _memoization_)
+  approach to avoid duplicated work by keep track of computed results, trade
+  space for time.
+
+[lc-518]: https://leetcode.com/problems/coin-change-ii
+
+See [`./count-change.rkt`](./count-change.rkt).
+
+> TODO (tai): implement 2 methods to solve coin chance problem.
+
+> TODO (tai): Are there any iterative solution for the count-change?
+
+#### Exercises
+
+- [x] [1.11](./1.11.md)
+- [x] [1.12](./1.12.md)
+- [ ] [1.13](./1.13.md)
 
 ### 1.2.3 Orders of Growth
 
-- `R(n) = Θ(f(n))` if there's `k1` and `k2` such that `R(n)` is sandwiched
-  between `k1.f(n)` and `k2.f(n)`
-- How to debug in Racket?
-- How to return multiple values (for log debugging)?
-- And how to have side-effect (print to console) feature in racket?
-- Now sure where's the first place I read those, but:
-- Θ is used for sandwiched.
-- Ο is used for upper bound, and
-- Ω is used for lower bound.
-- Don't know why big-O is popular instead of Θ, while Θ should be the
-  thing we consider when analyze the complexity of algorithm.
+There might be multiple properties of the problem to measure how the its
+algorithm behave as input change. For example: `sqrt(x)` can use the size of
+`x`, or `n` where `n` is the number of digits accuracy required.
+
+$R(n) = \Theta(f(n))$ if there's $k_1$ and $k_2$ such that $R(n)$ is sandwiched
+between $k_1f(n)$ and $k_2f(n)$, i.e.
+
+$$
+k_1 f(n) <= R(n) <= k_2 f(n) \quad \forall n \text{ large enough}
+$$
+
+On the topics of complexity, there's some more knowledge that I know before but
+still can get confused when thought about them. Perhaps we will meet them in the
+later chapters.
+
+| Notation    | Name      | Meaning    | Set of functions that grow... |
+| ----------- | --------- | ---------- | ----------------------------- |
+| $O(f)$      | Big O     | Upper      | no faster than $f$            |
+| $\Theta(f)$ | Big Theta | Sandwiched | roughly as fast as $f$        |
+| $\Omega(f)$ | Big Omega | Lower      | at least as fast as $f$       |
+
+- https://en.wikipedia.org/wiki/Big_O_notation
+- [A good explanation](https://www.reddit.com/r/algorithms/comments/13rcitf/comment/jllke3f)
+
+While $\Theta$ is more correct, $O$ is more widely used because we mostly care
+about the upper bound, and, analyze only the upper bound is common easier than
+analyze both upper and lower bounds.
+
+#### Exercises
+
+- [ ] [1.14](./1.14.md)
+- [ ] [1.15](./1.15.md)
+
+> TODO (tai): solve these exercises.
 
 ### 1.2.4 Exponentiation
 
-- ~~I don't get it. Why compute `b^n` is `Θ(n)` space? It should be `Θ(1)` to
-  me.~~ I get it now, thanks to https://cs.stackexchange.com/a/44602
-- `f(n)` consumes 1 more than `f(n-1)`, thus the space is `Θ(n)`
-- I really miss the side effect of `println` or `console.log()`.
+[`exponent.rkt`](./exponent.rkt)
+
+From footnote 37, the base for the logarithmic process in $\Theta(log(n))$
+doesn't matter due to the arbitrary constant $k_1$ and $k_2$. Recall that we can
+always convert from $log_a(n)$ to $log_b(n)$ using a constant.
+
+#### Exercises
+
+- [ ] [1.16](./1.16.md)
+- [ ] [1.17](./1.17.md)
+- [ ] [1.18](./1.18.md)
+- [ ] [1.19](./1.19.md)
+
+> TODO (tai): solve them
 
 ### 1.2.5 Greatest Common Divisors
 
-- It's funny when you are working through SICP, and they mention TAOCP,
-  which you also working through as the same time. I' choose to work on
-  SICP because Knuth volume 1 requires too much Math, such that I can't
-  programming. And SICP seems easier to code. Doing both seems a good
-  balance between hand writing mathematic and proramming in a completely
-  new language.
+- It's funny when you are working through SICP, and they mention TAOCP, which
+  you're also working through as the same time. I' choose to work on SICP
+  because Knuth volume 1 requires too much Math, such that I can't program. And
+  SICP seems easier to code. Doing both seems a good balance between handwriting
+  mathematics and programming in a completely new language.
 - How to prove Lamé's Theorem?
 
 ### 1.2.6 Example: Testing for Primality

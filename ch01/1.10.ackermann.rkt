@@ -20,7 +20,7 @@
     [else (power-of-2 (tetration (- n 1)))]))
 
 ; custom power of 2 in a tail-recursive manner,
-; instead of using expt function, just for fun.
+; instead of using the built-in expt function, just for fun.
 (define (power-of-2 n)
   (define (square x)
     (* x x))
