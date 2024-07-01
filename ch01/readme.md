@@ -324,7 +324,7 @@ See [`./count-change.rkt`](./count-change.rkt).
 
 - [x] [1.11](./1.11.md)
 - [x] [1.12](./1.12.md)
-- [ ] [1.13](./1.13.md)
+- [x] [1.13](./1.13.md)
 
 ### 1.2.3 Orders of Growth
 
