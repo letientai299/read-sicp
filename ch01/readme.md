@@ -283,7 +283,7 @@ recursive but iterative processes using constant space, i.e.
 
 ### 1.2.2 Tree Recursion
 
-**Fibonacci sequence**
+#### Fibonacci sequence
 
 - Recursive implementation:
   - Time grow exponentially
@@ -301,9 +301,7 @@ $$
 See [`./fib.rkt`](./fib.rkt) for all 3 implementation versions: terrible, linear
 and $O(1)$.
 
-> TODO (tai): implement 3 versions of fib.
-
-**Counting change**
+#### Counting change
 
 - Can be done using BFS
 - It's also [Leetcode 518 - Coin Change II][lc-518], a classic _Dynamic
@@ -314,11 +312,37 @@ and $O(1)$.
 
 [lc-518]: https://leetcode.com/problems/coin-change-ii
 
+On the different between BFS, DFS, DP and backtracking, all of which are
+strategies to explore the _solution **tree/graph**_ for an optimal one:
+
+- **BFS**: explorer the tree _layer by layer_.
+- **DFS**: explorer deeply to the leaf first, then go back up and explore other
+  branches.
+- **DP**:
+  - Top to Bottom recursion, enhanced with memorizing smaller solutions, i.e.
+    _memoization_.
+  - Bottom to Top, solve smaller problems first, remember the solutions, then go
+    upward to solve bigger ones, can be implemented iterative typically.
+- **Backtracking**: is a brute force approach to solve
+  **constraint-satisfaction** problems without trying all possibilities, grow
+  the tree as deep as possible, similar to DFS, but also reject invalid branch
+  based on the constraint.
+
+Let's use $C(a, n)$ to denote _count change_ value, $a$ is the amount, $n$ is
+number of kinds of coin, and $d_n$ is the coin value. Here's how $C(a, n)$ can
+be computed.
+
+$$
+C(a, n) =
+\begin{cases}
+1 & \text{if } a = 0   \\
+0 & \text{if } a \lt 0 \\
+0 & \text{if } n \le 0 \\
+C(a, n-1) + C(a-d_n, n)
+\end{cases}
+$$
+
 See [`./count-change.rkt`](./count-change.rkt).
-
-> TODO (tai): implement 2 methods to solve coin chance problem.
-
-> TODO (tai): Are there any iterative solution for the count-change?
 
 #### Exercises
 
@@ -328,9 +352,9 @@ See [`./count-change.rkt`](./count-change.rkt).
 
 ### 1.2.3 Orders of Growth
 
-There might be multiple properties of the problem to measure how the its
-algorithm behave as input change. For example: `sqrt(x)` can use the size of
-`x`, or `n` where `n` is the number of digits accuracy required.
+There might be multiple properties of the problem to measure how the algorithm
+behave as input change. For example: `sqrt(x)` can use the size of `x`, or `n`
+where `n` is the number of digits accuracy required.
 
 $R(n) = \Theta(f(n))$ if there's $k_1$ and $k_2$ such that $R(n)$ is sandwiched
 between $k_1f(n)$ and $k_2f(n)$, i.e.
@@ -358,7 +382,7 @@ analyze both upper and lower bounds.
 
 #### Exercises
 
-- [ ] [1.14](./1.14.md)
+- [x] [1.14](./1.14.md)
 - [ ] [1.15](./1.15.md)
 
 > TODO (tai): solve these exercises.
