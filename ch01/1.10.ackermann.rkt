@@ -35,9 +35,6 @@
 (for ([i (in-inclusive-range 0 20)])
   (printf "~a -> ~a\n" i (power-of-2 i)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;                                    TEST                                   ;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (module+ test
   (require rackunit)
   ; can't test with n>=6 since the computation is too slow.
