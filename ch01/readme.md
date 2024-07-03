@@ -383,9 +383,7 @@ analyze both upper and lower bounds.
 #### Exercises
 
 - [x] [1.14](./1.14.md)
-- [ ] [1.15](./1.15.md)
-
-> TODO (tai): solve these exercises.
+- [x] [1.15](./1.15.md)
 
 ### 1.2.4 Exponentiation
 

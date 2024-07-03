@@ -134,28 +134,3 @@
   (show stats))
 
 (gen-data)
-
-; -----------------------------------------------------------------------------
-; Experimental
-; -----------------------------------------------------------------------------
-
-(define (bench f)
-  (define start (current-inexact-monotonic-milliseconds))
-  (f)
-  (define elapsed
-    (- (current-inexact-monotonic-milliseconds) start))
-  (define elapsed-ns (truncate (* 1000000 elapsed)))
-  (format "Elaspsed ~a ns" (inexact->exact elapsed-ns)))
-
-(define func (lambda () (count-change 200)))
-
-(require atomichron)
-(define bench-count-change
-  (make-microbenchmark
-   #:name 'count-change
-   #:iterations 20
-   #:microexpression-iterations 100
-   #:microexpression-builder
-   (lambda (_) (make-microexpression #:thunk func))))
-; (microbenchmark-run! bench-count-change)
-; (bench func)
