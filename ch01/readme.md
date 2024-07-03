@@ -398,9 +398,7 @@ always convert from $log_a(n)$ to $log_b(n)$ using a constant.
 - [x] [1.16](./1.16.md)
 - [x] [1.17](./1.17.md)
 - [x] [1.18](./1.18.md)
-- [ ] [1.19](./1.19.md)
-
-> TODO (tai): solve them
+- [x] [1.19](./1.19.md)
 
 ### 1.2.5 Greatest Common Divisors
 
