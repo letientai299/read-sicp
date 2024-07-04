@@ -462,10 +462,48 @@ Footnote 47 (highlighted by me):
 
 ## 1.3 Formulating Abstractions with Higher-Order Procedures
 
+Procedures that manipulate procedures are called **higher-order procedures**.
+
 ### 1.3.1 Procedures as Arguments
+
+> The exact value of the integral of cube between 0 and 1 is 1/4.
+
+$$
+\int_0^1{x^3}dx = \frac{b^4}{4} -  \frac{a^4}{4} = \frac{1}{4} \quad (b=1,a=0)
+$$
+
+#### Exercises
+
+- [ ] [1.29](./1.29.md)
+- [ ] [1.30](./1.30.md)
+- [ ] [1.31](./1.31.md)
+- [ ] [1.32](./1.32.md)
+- [ ] [1.33](./1.33.md)
 
 ### 1.3.2 Constructing Procedures Using Lambda
 
+#### Exercises
+
+- [ ] [1.34](./1.34.md)
+
 ### 1.3.3 Procedures as General Methods
 
+#### Exercises
+
+- [ ] [1.35](./1.35.md)
+- [ ] [1.36](./1.36.md)
+- [ ] [1.37](./1.37.md)
+- [ ] [1.38](./1.38.md)
+- [ ] [1.39](./1.39.md)
+
 ### 1.3.4 Procedures as Returned Values
+
+#### Exercises
+
+- [ ] [1.40](./1.40.md)
+- [ ] [1.41](./1.41.md)
+- [ ] [1.42](./1.42.md)
+- [ ] [1.43](./1.43.md)
+- [ ] [1.44](./1.44.md)
+- [ ] [1.45](./1.45.md)
+- [ ] [1.46](./1.46.md)
