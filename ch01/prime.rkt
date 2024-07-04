@@ -1,4 +1,5 @@
 #lang debug racket
+(require "../utils/bench.rkt")
 
 (define (square x)
   (* x x))
@@ -84,21 +85,58 @@
                        100000000
                        1000000000))))
 
-(require "../utils/bench.rkt")
+(define (gen-stats)
+  (printf "| Digits | Prime | `prime?` | `fast-prime?` |\n")
+  (printf "| --- | --- | --- | --- | --- |\n")
+  (for ([p some-primes])
+    (define prime-time (bench count (lambda () (prime? p))))
+    (define fast-prime-time
+      (bench count (lambda () (fast-prime? p tries))))
+    ; convert to nanosecond because the number is too small on my machine.
+    (define prime-time-ns
+      (inexact->exact (round (* prime-time 1000))))
+    (define fast-prime-time-ns
+      (inexact->exact (round (* fast-prime-time 1000))))
+    (printf "| ~a | ~a | ~a | ~a |\n"
+            (digits p)
+            p
+            prime-time-ns
+            fast-prime-time-ns)))
 
-(printf "| Digits | Prime | `primes?` | `fast-prime?` |\n")
-(printf "| --- | --- | --- | --- | --- |\n")
-(for ([p some-primes])
-  (define prime-time (bench count (lambda () (prime? p))))
-  (define fast-prime-time
-    (bench count (lambda () (fast-prime? p tries))))
-  ; convert to nanosecond because the number is too small on my machine.
-  (define prime-time-ns
-    (inexact->exact (round (* prime-time 1000))))
-  (define fast-prime-time-ns
-    (inexact->exact (round (* fast-prime-time 1000))))
-  (printf "| ~a | ~a | ~a | ~a |\n"
-          (digits p)
-          p
-          prime-time-ns
-          fast-prime-time-ns))
+;------------------------------------------------------------------------------
+; Ex 1.23
+;------------------------------------------------------------------------------
+
+(define (smallest-divisor-next n)
+  (if (divides? 2 n) 2 (find-divisor-next n 3)))
+
+(define (find-divisor-next n test-divisor)
+  (cond
+    [(> (square test-divisor) n) n]
+    [(divides? test-divisor n) test-divisor]
+    [else (find-divisor-next n (+ test-divisor 2))]))
+
+(define (prime-next? n)
+  (= n (smallest-divisor-next n)))
+
+(define (compare-prime-and-prime-next)
+  (printf
+   "| Digits | Prime | `prime?` | `prime-next?` | Speed up |\n")
+  (printf "| --- | --- | --- | --- | --- |\n")
+  (for ([p some-primes])
+    (define prime-time (bench count (lambda () (prime? p))))
+    (define next-time
+      (bench count (lambda () (prime-next? p))))
+    (define prime-ns
+      (inexact->exact (round (* prime-time 1000))))
+    (define next-ns
+      (inexact->exact (round (* next-time 1000))))
+    (printf "| ~a | ~a | ~a | ~a | ~a% |\n"
+            (digits p)
+            p
+            prime-ns
+            next-ns
+            (round (* 100.0
+                      (/ (- next-ns prime-ns) prime-ns))))))
+
+(compare-prime-and-prime-next)
