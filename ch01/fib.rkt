@@ -43,14 +43,37 @@
     (define iter (fib-iter i))
     (define iter-fast (fib-iter-fast i))
     (define cal (fib-math i))
-    (printf
-     "~a \t recur=~a \t iter=~a \t iter-fast=~a \t math=~a\n"
-     i
-     rec
-     iter
-     iter-fast
-     cal)
+    ; (printf
+    ; "~a \t recur=~a \t iter=~a \t iter-fast=~a \t math=~a\n"
+    ; i
+    ; rec
+    ; iter
+    ; iter-fast
+    ; cal)
     (test-case (format "fib(~a)" i)
       (check-eqv? iter rec)
       (check-eqv? iter iter-fast)
       (check-eqv? iter cal))))
+
+(require "../utils/bench.rkt")
+(require plot)
+
+(parameterize ([plot-width 600]
+               [plot-height 400]
+               [plot-y-transform log-transform])
+  (define ns (inclusive-range 0 300))
+  (define (mapper f)
+    (lambda (n) (vector n (bench 500 (lambda () (f n))))))
+
+  (plot-file ;
+   (list ;
+    (lines (map (mapper fib-math) ns)
+           #:label "fib-math"
+           #:color "blue")
+    (lines (map (mapper fib-iter-fast) ns)
+           #:label "fib-iter-fast"
+           #:color "orange")
+    (lines (map (mapper fib-iter) ns)
+           #:label "fib-iter"
+           #:color "red"))
+   "fib.svg"))
