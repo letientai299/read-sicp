@@ -458,7 +458,7 @@ Footnote 47 (highlighted by me):
 - [x] [1.25](./1.25.md)
 - [x] [1.26](./1.26.md)
 - [x] [1.27](./1.27.md)
-- [ ] [1.28](./1.28.md)
+- [x] [1.28](./1.28.md)
 
 ## 1.3 Formulating Abstractions with Higher-Order Procedures
 
