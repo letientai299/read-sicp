@@ -54,3 +54,51 @@
           (check-eqv? a (expmod a n n))))))
 
   (fool-fermat-test (list 561 1105 1729 2465 2821 6601)))
+
+;------------------------------------------------------------------------------
+; Ex 1.22
+;------------------------------------------------------------------------------
+
+(define tries 100)
+(define count 1000)
+(define (digits n)
+  (if (>= 10 n) 1 (+ 1 (digits (/ n 10)))))
+
+(define (search-for-primes start count)
+  (define (iter n)
+    (if (and (odd? n) (fast-prime? n tries))
+        n
+        (iter (+ n 1))))
+
+  (if (= count 0)
+      (list)
+      (let ([p (iter start)])
+        (cons p (search-for-primes (+ p 1) (- count 1))))))
+
+(define some-primes
+  (flatten (map (lambda (start) (search-for-primes start 5))
+                '(1000 10000
+                       100000
+                       1000000
+                       10000000
+                       100000000
+                       1000000000))))
+
+(require "../utils/bench.rkt")
+
+(printf "| Digits | Prime | `primes?` | `fast-prime?` |\n")
+(printf "| --- | --- | --- | --- | --- |\n")
+(for ([p some-primes])
+  (define prime-time (bench count (lambda () (prime? p))))
+  (define fast-prime-time
+    (bench count (lambda () (fast-prime? p tries))))
+  ; convert to nanosecond because the number is too small on my machine.
+  (define prime-time-ns
+    (inexact->exact (round (* prime-time 1000))))
+  (define fast-prime-time-ns
+    (inexact->exact (round (* fast-prime-time 1000))))
+  (printf "| ~a | ~a | ~a | ~a |\n"
+          (digits p)
+          p
+          prime-time-ns
+          fast-prime-time-ns))
