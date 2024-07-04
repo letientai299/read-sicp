@@ -92,16 +92,11 @@
     (define prime-time (bench count (lambda () (prime? p))))
     (define fast-prime-time
       (bench count (lambda () (fast-prime? p tries))))
-    ; convert to nanosecond because the number is too small on my machine.
-    (define prime-time-ns
-      (inexact->exact (round (* prime-time 1000))))
-    (define fast-prime-time-ns
-      (inexact->exact (round (* fast-prime-time 1000))))
     (printf "| ~a | ~a | ~a | ~a |\n"
             (digits p)
             p
-            prime-time-ns
-            fast-prime-time-ns)))
+            prime-time
+            fast-prime-time)))
 
 ;------------------------------------------------------------------------------
 ; Ex 1.23
@@ -109,6 +104,9 @@
 
 (define (smallest-divisor-next n)
   (if (divides? 2 n) 2 (find-divisor-next n 3)))
+
+(define (perf-diff-percentage from to)
+  (round (* 100.0 (/ (- to from) from))))
 
 (define (find-divisor-next n test-divisor)
   (cond
@@ -127,16 +125,36 @@
     (define prime-time (bench count (lambda () (prime? p))))
     (define next-time
       (bench count (lambda () (prime-next? p))))
-    (define prime-ns
-      (inexact->exact (round (* prime-time 1000))))
-    (define next-ns
-      (inexact->exact (round (* next-time 1000))))
     (printf "| ~a | ~a | ~a | ~a | ~a% |\n"
             (digits p)
             p
-            prime-ns
-            next-ns
-            (round (* 100.0
-                      (/ (- next-ns prime-ns) prime-ns))))))
+            prime-time
+            next-time
+            (perf-diff-percentage prime-time next-time))))
 
-(compare-prime-and-prime-next)
+; (compare-prime-and-prime-next)
+
+;------------------------------------------------------------------------------
+; Ex 1.25
+;------------------------------------------------------------------------------
+
+(require "./exponent.rkt")
+(define (expmod-expt base exp m)
+  (remainder (expt-fast base exp) m))
+
+(define (compare-expmods)
+  (printf "| Prime | `expmod` | `expmod-expt` | Diff |\n")
+  (printf "| ---   | ---       | ---          | --- |\n")
+  (for ([p (take some-primes 5)])
+    (define base (- p 1))
+    (define expmod-time
+      (bench count (lambda () (expmod base p p))))
+    (define expt-time
+      (bench count (lambda () (expmod-expt base p p))))
+    (printf "| ~a | ~a | ~a | ~a% |\n"
+            p
+            expmod-time
+            expt-time
+            (perf-diff-percentage expmod-time expt-time))))
+
+; (compare-expmods)

@@ -1,5 +1,7 @@
 #lang debug racket
 
+(provide expt-fast)
+
 ; expt linear recursive provided by the book
 ; Time: O(n)
 ; Space O(n), note that this not tall-call.
