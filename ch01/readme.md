@@ -482,9 +482,21 @@ $$
 
 ### 1.3.2 Constructing Procedures Using Lambda
 
+Here's where we formally learn about `lambda` and `let` in the book, although I
+have used them to write tests for previous exercises. The book, however, make it
+clear that `let` (and `define`) is just syntactic sugar for `lambda`.
+
+> We prefer, however, to use `let` in situations like this and to use internal
+> `define` only for internal procedures.
+
+Prefer `let` to keep the scope of the variable as small as possible. I keep
+using `define` to create local variable despite knowing `let` (because `let`
+syntax feel cubersome with more wrapping parens.) I guess I should change that
+habit for now.
+
 #### Exercises
 
-- [ ] [1.34](./1.34.md)
+- [x] [1.34](./1.34.md)
 
 ### 1.3.3 Procedures as General Methods
 
