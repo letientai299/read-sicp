@@ -12,6 +12,9 @@
 (define (inc n)
   (+ n 1))
 
+(define (dec n)
+  (- n 1))
+
 (define (cube x)
   (* x x x))
 
@@ -244,3 +247,41 @@
      "1.36.graph.svg")))
 
 ; (plot-for-1.36)
+
+;------------------------------------------------------------------------------
+; Ex 1.37
+;------------------------------------------------------------------------------
+
+; this is very slow
+(define (cont-frac-rec n d k)
+  (if (>= 1 k) ;
+      (/ (n k) (d k))
+      (/ (n k) (+ 0.0 (d k) (cont-frac-rec n d (dec k))))))
+
+(define (cont-frac n d k)
+  (define (iter res k)
+    (if (= 0 k) ;
+        res
+        (iter (/ ;
+               (n k)
+               (+ (d k) res))
+              (dec k))))
+  (iter 0.0 k))
+
+(define (approximate-inverse-phi n)
+  (cont-frac (lambda (_) 1) (lambda (_) 1) n))
+
+(require "./fib.rkt")
+
+(define (try-cont-frac)
+  (define method cont-frac)
+  (for ([n 20])
+    (define from-fib (/ (fib-math n) (fib-math (inc n))))
+    (define frac (method (lambda (_) 1) (lambda (_) 1) n))
+    (printf "~a -> ~a vs ~a \n"
+            n
+            frac
+            (exact->inexact from-fib))))
+
+; (for ([n 20])
+; (printf "~a \t ~a\n" n (approximate-inverse-phi n)))
