@@ -4,6 +4,8 @@
 ; Code from the book
 ;------------------------------------------------------------------------------
 
+(define (itentity x)
+  x)
 (define (inc n)
   (+ n 1))
 
@@ -30,7 +32,8 @@
   ; (* (sum f a add-dx b) dx))
   (* (sum f (+ a (/ dx 2.0)) add-dx b) dx))
 
-(integral cube 0 1 0.01)
+(printf "midpoint rule of cube: ~a\n"
+        (integral cube 0 1 0.01))
 
 ;------------------------------------------------------------------------------
 ; Ex 1.29
@@ -57,4 +60,42 @@
         (f b) ; y_n
         )))
 
-(simpson-integral cube 0 1 10)
+(printf "simpson rule for cube: ~a\n"
+        (simpson-integral cube 0 1 10))
+
+;------------------------------------------------------------------------------
+; Ex 1.31
+;------------------------------------------------------------------------------
+
+(define (product term a next b)
+  (define (iter x res)
+    (if (> x b) res (iter (next x) (* res (term x)))))
+  (iter a 1))
+
+(define (product-rec term a next b)
+  (if (> a b)
+      1
+      (* (term a) (product term (next a) next b))))
+
+(define (factorial-rec n)
+  (product-rec identity 1 inc n))
+
+(define (factorial n)
+  (product identity 1 inc n))
+
+(for ([n 11])
+  (define rec (factorial-rec n))
+  (define iter (factorial n))
+  (printf "~a ~a! \t= ~a \n"
+          (if (= iter rec) "ok" "!!!")
+          n
+          iter))
+
+(define (wallis-product n)
+  (define (wallis-term x)
+    (define v (* 4.0 x x))
+    (/ v (- v 1)))
+  (* 2 (product wallis-term 1 inc n)))
+
+; (for ([n (in-inclusive-range 1000 20000 1000)])
+; (printf "|~a | ~a|\n" n (wallis-product n)))
