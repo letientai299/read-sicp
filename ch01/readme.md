@@ -517,8 +517,8 @@ On the `fixed-point` algorithm:
 - [x] [1.35](./1.35.md)
 - [x] [1.36](./1.36.md)
 - [x] [1.37](./1.37.md)
-- [ ] [1.38](./1.38.md)
-- [ ] [1.39](./1.39.md)
+- [x] [1.38](./1.38.md)
+- [x] [1.39](./1.39.md)
 
 ### 1.3.4 Procedures as Returned Values
 

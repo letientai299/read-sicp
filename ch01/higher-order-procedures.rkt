@@ -254,9 +254,11 @@
 
 ; this is very slow
 (define (cont-frac-rec n d k)
-  (if (>= 1 k) ;
-      (/ (n k) (d k))
-      (/ (n k) (+ 0.0 (d k) (cont-frac-rec n d (dec k))))))
+  (define (recur i)
+    (if (> i k) ;
+        0.0
+        (/ (n i) (+ 0.0 (d i) (recur (inc i))))))
+  (recur 1))
 
 (define (cont-frac n d k)
   (define (iter res k)
@@ -269,7 +271,10 @@
   (iter 0.0 k))
 
 (define (approximate-inverse-phi n)
-  (cont-frac (lambda (_) 1) (lambda (_) 1) n))
+  (approximate-inverse-phi-by cont-frac n))
+
+(define (approximate-inverse-phi-by method n)
+  (method (lambda (_) 1) (lambda (_) 1) n))
 
 (require "./fib.rkt")
 
@@ -285,3 +290,44 @@
 
 ; (for ([n 20])
 ; (printf "~a \t ~a\n" n (approximate-inverse-phi n)))
+
+;------------------------------------------------------------------------------
+; Ex 1.38
+;------------------------------------------------------------------------------
+
+(define (approximate-e n)
+  (approximate-e-by cont-frac n))
+
+(define (approximate-e-by method n)
+  (define (d k)
+    (if (< 0 (remainder (inc k) 3)) 1 (* 2 (/ (inc k) 3))))
+  (+ 2 (method (lambda (_) 1) d n)))
+
+(module+ test
+  (require rackunit)
+  (for ([n 20])
+    (define e-iter (approximate-e-by cont-frac n))
+    (define e-recur (approximate-e-by cont-frac-rec n))
+    (test-case (format "e(~a)" n)
+      (check-eqv? e-iter e-recur)))
+
+  (for ([n 20])
+    (define phi-iter
+      (approximate-inverse-phi-by cont-frac n))
+    (define phi-recur
+      (approximate-inverse-phi-by cont-frac-rec n))
+    (test-case (format "1/phi: ~a" n)
+      (check-eqv? phi-iter phi-recur))))
+
+;------------------------------------------------------------------------------
+; Ex 1.39
+;------------------------------------------------------------------------------
+
+(define (tan-cf x k)
+  (/ (cont-frac (lambda (_) (- (* x x)))
+                (lambda (n) (dec (+ n n)))
+                k)
+     (- x)))
+
+; (tan-cf 5 100)
+; (tan 5)
