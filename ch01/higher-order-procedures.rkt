@@ -64,13 +64,32 @@
         (simpson-integral cube 0 1 10))
 
 ;------------------------------------------------------------------------------
+; Ex 1.32
+;------------------------------------------------------------------------------
+
+(define (accumulate combine nil term a next b)
+  (define (iter x res)
+    (if (> x b)
+        res ;
+        (iter (next x) (combine res (term x)))))
+  (iter a nil))
+
+(define (accumulate-rec combine nil term a next b)
+  (if (> a b)
+      nil
+      (combine
+       (term a)
+       (accumulate-rec combine nil term (next a) next b))))
+
+;------------------------------------------------------------------------------
 ; Ex 1.31
 ;------------------------------------------------------------------------------
 
 (define (product term a next b)
-  (define (iter x res)
-    (if (> x b) res (iter (next x) (* res (term x)))))
-  (iter a 1))
+  (accumulate * 1 term a next b))
+; (define (iter x res)
+; (if (> x b) res (iter (next x) (* res (term x)))))
+; (iter a 1))
 
 (define (product-rec term a next b)
   (if (> a b)
