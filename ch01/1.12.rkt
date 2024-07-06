@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 (define (P r c)
   (if (or (= r 0) (= c 0) (= r c)) ;

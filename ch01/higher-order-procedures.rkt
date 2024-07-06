@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 ;------------------------------------------------------------------------------
 ; Code from the book, section 1.3.1

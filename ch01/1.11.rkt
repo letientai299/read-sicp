@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 (define (f-rec n)
   (if (< n 3)

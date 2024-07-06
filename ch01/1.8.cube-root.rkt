@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 (define epsilon 1e-10)
 

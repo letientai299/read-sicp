@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 (define (fact-iter n)
   (define (iter prod count)

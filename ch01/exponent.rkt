@@ -1,4 +1,4 @@
-#lang debug racket
+#lang racket
 
 (provide expt-fast)
 
