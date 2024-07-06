@@ -1,7 +1,7 @@
 #lang debug racket
 
 ;------------------------------------------------------------------------------
-; Code from the book
+; Code from the book, section 1.3.1
 ;------------------------------------------------------------------------------
 
 (define (itentity x)
@@ -33,8 +33,8 @@
   ; (* (sum f a add-dx b) dx))
   (* (sum f (+ a (/ dx 2.0)) add-dx b) dx))
 
-(printf "midpoint rule of cube: ~a\n"
-        (integral cube 0 1 0.01))
+; (printf "midpoint rule of cube: ~a\n"
+; (integral cube 0 1 0.01))
 
 ;------------------------------------------------------------------------------
 ; Ex 1.29
@@ -61,8 +61,8 @@
         (f b) ; y_n
         )))
 
-(printf "simpson rule for cube: ~a\n"
-        (simpson-integral cube 0 1 10))
+; (printf "simpson rule for cube: ~a\n"
+; (simpson-integral cube 0 1 10))
 
 ;------------------------------------------------------------------------------
 ; Ex 1.32
@@ -103,13 +103,13 @@
 (define (factorial n)
   (product identity 1 inc n))
 
-(for ([n 11])
-  (define rec (factorial-rec n))
-  (define iter (factorial n))
-  (printf "~a ~a! \t= ~a \n"
-          (if (= iter rec) "ok" "!!!")
-          n
-          iter))
+; (for ([n 11])
+; (define rec (factorial-rec n))
+; (define iter (factorial n))
+; (printf "~a ~a! \t= ~a \n"
+; (if (= iter rec) "ok" "!!!")
+; n
+; iter))
 
 (define (wallis-product n)
   (define (wallis-term x)
@@ -144,3 +144,55 @@
   (filtered-accumulate * 1 identity 1 inc (- n 1) coprime?))
 
 ; (product-of-smaller-coprimes 12) ; 1 5 7 11
+
+;------------------------------------------------------------------------------
+; Code based on section 1.3.3 in the book
+;------------------------------------------------------------------------------
+
+(define tolerante 0.00001)
+
+(define (avg a b)
+  (/ (+ a b) 2.0))
+
+(define (close-enough? a b)
+  (> tolerante (abs (- a b))))
+
+; search for a root of `f` knowning a negative and a positive point.
+(define (search f neg pos)
+  (let ([mid (avg neg pos)])
+    (if (close-enough? neg pos)
+        mid
+        (let ([v (f mid)])
+          (cond
+            [(zero? v) mid]
+            [(negative? v) (search f mid pos)]
+            [else (search f neg mid)])))))
+
+(define (half-interval-method f a b)
+  (let ([y1 (f a)] [y2 (f b)])
+    (cond
+      [(and (negative? y1) (positive? y2)) (search f a b)]
+      [(and (positive? y1) (negative? y2)) (search f b a)]
+      [else
+       (error "Values are not of opposite sign" a b)])))
+
+;; test the half-interval-method
+;; f(x) = x^3 - 2x -3
+; (define (f x)
+; (- (cube x) (* 2 x) 3))
+; (half-interval-method f 1 5)
+
+; this implementation from the book will loop indefinitely
+; if f(x) > x for any x >= guess.
+(define (fixed-point f first-guess)
+  (define (try guess)
+    (let ([next (f guess)])
+      (if (close-enough? guess next) next (try next))))
+  (try first-guess))
+
+(define (my-sqrt x)
+  ; using average damping.
+  (fixed-point (lambda (y) (avg y (/ x y))) 1.0))
+
+;; computing golden ratio.
+; (fixed-point (lambda (x) (+ 1 (/ 1 x))) 3.0)

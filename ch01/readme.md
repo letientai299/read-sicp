@@ -500,9 +500,21 @@ habit for now.
 
 ### 1.3.3 Procedures as General Methods
 
+The **half-interval** method is basically binary search.
+
+On the `fixed-point` algorithm:
+
+- Not all functioon can have fixed points, e.g. $f(x) = x+1$. In fact, there are
+  [a few requirements][fixed-point-reqs] on $f(x)$ for the fixed points to
+  exists.
+- The algorithm might run indefinitely.
+
+[fixed-point-reqs]:
+  https://en.wikipedia.org/wiki/Fixed-point_iteration#Banach_fixed-point_theorem
+
 #### Exercises
 
-- [ ] [1.35](./1.35.md)
+- [x] [1.35](./1.35.md)
 - [ ] [1.36](./1.36.md)
 - [ ] [1.37](./1.37.md)
 - [ ] [1.38](./1.38.md)
