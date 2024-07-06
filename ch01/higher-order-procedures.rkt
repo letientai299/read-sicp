@@ -10,11 +10,19 @@
 (define (cube x)
   (* x x x))
 
-(define (sum term a next b)
+; original `sum` from the book, renamed to favor the iterative one below.
+(define (sum-linear-recursion term a next b)
   (if (> a b) ;
       0
       (+ (term a) ;
          (sum term (next a) next b))))
+
+; this is the better `sum` (iterative recursion, instead of the original linear
+; recursion) resulted from Ex 1.30
+(define (sum term a next b)
+  (define (iter a result)
+    (if (> a b) result (iter (next a) (+ result (term a)))))
+  (iter a 0))
 
 (define (integral f a b dx)
   (define (add-dx x)
@@ -49,4 +57,4 @@
         (f b) ; y_n
         )))
 
-(simpson-integral cube -1 0 10)
+(simpson-integral cube 0 1 10)
