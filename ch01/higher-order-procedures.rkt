@@ -6,6 +6,7 @@
 
 (define (itentity x)
   x)
+
 (define (inc n)
   (+ n 1))
 
@@ -118,3 +119,28 @@
 
 ; (for ([n (in-inclusive-range 1000 20000 1000)])
 ; (printf "|~a | ~a|\n" n (wallis-product n)))
+
+;------------------------------------------------------------------------------
+; Ex 1.33
+;------------------------------------------------------------------------------
+
+(define (filtered-accumulate combine nil term a next b pick)
+  (define (filtered x)
+    (if (pick x) (term x) nil))
+  (accumulate combine nil filtered a next b))
+
+(require "./prime.rkt")
+
+(define (sum-of-squared-primes a b)
+  (define (square x)
+    (* x x))
+  (define (prime? n)
+    (fast-prime-miller-rabin? n 10))
+  (filtered-accumulate + 0 square a inc b prime?))
+
+(define (product-of-smaller-coprimes n)
+  (define (coprime? x)
+    (= 1 (gcd x n)))
+  (filtered-accumulate * 1 identity 1 inc (- n 1) coprime?))
+
+; (product-of-smaller-coprimes 12) ; 1 5 7 11

@@ -1,6 +1,9 @@
 #lang debug racket
 (require "../utils/bench.rkt")
 
+(provide prime?)
+(provide fast-prime-miller-rabin?)
+
 (define (square x)
   (* x x))
 
@@ -21,7 +24,7 @@
   (= (remainder b a) 0))
 
 (define (prime? n)
-  (= n (smallest-divisor n)))
+  (and (> n 1) (= n (smallest-divisor n))))
 
 (define (expmod base exp m)
   (cond
@@ -34,7 +37,10 @@
 (define (fermat-test n)
   (define (try-it a)
     (= (expmod a n n) a))
-  (try-it (+ 1 (random (- n 1)))))
+  (cond
+    [(> 2 n) false]
+    [(= 2 n) true]
+    [else (try-it (+ 1 (random (- n 1))))]))
 
 (define (fast-prime? n times)
   (cond
@@ -209,7 +215,7 @@
 ; See https://stackoverflow.com/a/59834347 and wikipedia.
 ; This procedure implement the definition on wikipedia.
 (define (miller-rabin-test n)
-  (define d (remove-power-of-2 (- n 1)))
+  (define d (if (= n 1) 0 (remove-power-of-2 (- n 1))))
 
   (define (s-loop x d)
     (define y (remainder (square x) n))
@@ -223,7 +229,10 @@
     (define x (expmod a d n))
     (= (s-loop x d) 1))
 
-  (if (= n 2) true (try-it (+ 2 (random (- n 2))))))
+  (cond
+    [(> 2 n) false]
+    [(= 2 n) true]
+    [else (try-it (+ 2 (random (- n 2))))]))
 
 (define (fast-prime-miller-rabin? n times)
   (cond
@@ -255,7 +264,7 @@
      (if (eq? fermat is-prime) "" " *** Fermat test fooled")
      (if (eq? miller is-prime) "" " !!! Miller test fooled"))))
 
-(show-result-for (range 1000 1050 2) "Some know composites")
-(show-result-for some-primes "Some know primes")
-(show-result-for (range 2 50 1) "Small")
-(show-result-for carmichael-numbers "Carmichael numbers")
+; (show-result-for (range 1000 1050 2) "Some know composites")
+; (show-result-for some-primes "Some know primes")
+; (show-result-for (range 2 50 1) "Small")
+; (show-result-for carmichael-numbers "Carmichael numbers")
