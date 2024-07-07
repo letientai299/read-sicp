@@ -331,3 +331,55 @@
 
 ; (tan-cf 5 100)
 ; (tan 5)
+
+;------------------------------------------------------------------------------
+; Code from the book, section 1.3.4
+;------------------------------------------------------------------------------
+
+(define (average-damp f)
+  (lambda (x) (avg x (f x))))
+
+; deriv simulates derivative of a function g(x).
+(define (deriv g)
+  (lambda (x) (/ (- (g (+ x dx)) (g x)) dx)))
+(define dx 0.000000001)
+
+(define (newton-tranform g)
+  (lambda (x) (- x (/ (g x) ((deriv g) x)))))
+
+; Newton's method to find root of the g(x)
+(define (newtons-method g guess)
+  (fixed-point (newton-tranform g) guess))
+
+; General idea of finding a root of g via transforming it into another function
+; then use the fixed-point algorithm to estimate the root.
+(define (fixed-point-of-transform g transform guess)
+  (fixed-point (transform g) guess))
+
+;------------------------------------------------------------------------------
+; Ex 1.40
+;------------------------------------------------------------------------------
+
+; return a function that computes: x^3 + ax^2 + bx + c
+(define (cubic a b c)
+  (lambda (x)
+    (+ ;
+     (cube x)
+     (* a (sqr x))
+     (* b x)
+     c)))
+
+; (newtons-method (cubic 4 -3 -2) 1)
+; (newtons-method (cubic 4 -3 -2) 0)
+; (newtons-method (cubic 4 -3 -2) -10)
+
+;------------------------------------------------------------------------------
+; Ex 1.41
+;------------------------------------------------------------------------------
+(define (double f)
+  (lambda (x) (f (f x))))
+
+(((double (double double)) inc) 5)
+(((double (double double)) dec) 5)
+
+((double (double (double inc))) 5)

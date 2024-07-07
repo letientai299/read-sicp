@@ -522,10 +522,25 @@ On the `fixed-point` algorithm:
 
 ### 1.3.4 Procedures as Returned Values
 
+Oh the wording. The author began with "Experienced"
+
+> **Experienced** programmers know how to choose procedural formulations that
+> are particularly **perspicuous**, and where useful elements of the process are
+> exposed as **separate entities** that can be **reused** in other applications
+
+Then, he progressed to "Expert".
+
+> **Expert** programmers know how to choose the **level of abstraction**.
+
+What a masterpiece of writing.
+
+From footnote 66, major challenge of first class procedures is reserving storage
+for procedure's free variables.
+
 #### Exercises
 
-- [ ] [1.40](./1.40.md)
-- [ ] [1.41](./1.41.md)
+- [x] [1.40](./1.40.md)
+- [x] [1.41](./1.41.md)
 - [ ] [1.42](./1.42.md)
 - [ ] [1.43](./1.43.md)
 - [ ] [1.44](./1.44.md)
