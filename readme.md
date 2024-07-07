@@ -48,7 +48,7 @@ something useful (in the context of this repo) with it.
 Use `#:transparent` to make the struct accessible for low-level inspection for
 printing, helpful to define named test cases, see [`1.3.rkt`](./ch01/1.3.rkt).
 
-```racket
+```scheme
 (struct args (a b c) #:transparent)
 (print (args 1 2 3))
 ```

@@ -89,7 +89,7 @@ The more syntactic sugar, the less uniform of the language. Great quote.
 
 There's 2 different actions being combined in the line:
 
-```racket
+```scheme
 (define (square x) (* x x))
 ```
 
@@ -122,7 +122,7 @@ _Case analysis_ in Lisp, basically a more powerful _switch-case_.
 
 Verbose example
 
-```racket
+```scheme
 (define (abs x)
   (cond
     ((> x 0) x)
@@ -132,7 +132,7 @@ Verbose example
 
 Shorter
 
-```racket
+```scheme
 (define (abs x)
   (cond
     ((< x 0) (- x))
@@ -141,7 +141,7 @@ Shorter
 
 `if` syntax.
 
-```racket
+```scheme
 (define (abs x)
   (if (< x 0) (- x) x))
 ```
@@ -184,7 +184,7 @@ it a _black box_, be able to use it without knowing how it's implemented.
 
 Both of these compute the square of a number, to illustrate the black box idea.
 
-```racket
+```scheme
 (define (square x) (* x x))
 
 (define (square x)
@@ -251,7 +251,7 @@ Example _shapes_ of 2 methods for [`./factorials.rkt`](./factorials.rkt).
   the variables), program can't resume from a particular steps without those
   hidden info.
 
-  ```racket
+  ```scheme
   (fact 2)
   (* 2 (fact 1))
   (* 2 (* 1 (fact 0)))
@@ -263,7 +263,7 @@ Example _shapes_ of 2 methods for [`./factorials.rkt`](./factorials.rkt).
 - Iteration: stack stays the same, all information are maintained using
   variables, program can resume from any particular step.
 
-  ```racket
+  ```scheme
   (fact 2)
   (iter 1 1)
   (iter 1 2)
