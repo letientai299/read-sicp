@@ -1,12 +1,20 @@
 #lang racket
 
 (require plot)
+(require racket/trace)
+
+(define log-call
+  ((lambda (n)
+     (lambda (name x)
+       (set! n (+ n 1))
+       (printf "~a \t| `~a` \t| `x=~a` \t|\n" n name x)))
+   0))
 
 ;------------------------------------------------------------------------------
 ; Code from the book, section 1.3.1
 ;------------------------------------------------------------------------------
 
-(define (itentity x)
+(define (identity x)
   x)
 
 (define (inc n)
@@ -303,7 +311,7 @@
     (if (< 0 (remainder (inc k) 3)) 1 (* 2 (/ (inc k) 3))))
   (+ 2 (method (lambda (_) 1) d n)))
 
-(module+ test
+(module+ test-skipped ; rename module to run test
   (require rackunit)
   (for ([n 20])
     (define e-iter (approximate-e-by cont-frac n))
@@ -377,9 +385,53 @@
 ; Ex 1.41
 ;------------------------------------------------------------------------------
 (define (double f)
-  (lambda (x) (f (f x))))
+  (compose f f))
 
-(((double (double double)) inc) 5)
-(((double (double double)) dec) 5)
+; (((double (double double)) inc) 5)
+; ((double (double (double inc))) 5)
 
-((double (double (double inc))) 5)
+;------------------------------------------------------------------------------
+; Ex 1.42
+;------------------------------------------------------------------------------
+
+(define (compose f g)
+  (lambda (x) (f (g x))))
+
+; ((compose sqr inc) 6)
+
+;------------------------------------------------------------------------------
+; Ex 1.43
+;------------------------------------------------------------------------------
+
+;; linear recursive, O(n)
+(define (repeated-linear-rec f n)
+  (if (= 0 n)
+      identity
+      (compose f (repeated-linear-rec f (- n 1)))))
+
+; iter, O(n)
+(define (repeated-iter f n)
+  (define (iter g i)
+    (if (= 0 i) g (iter (compose g f) (- i 1))))
+  (iter identity n))
+
+; successive squaring, O(log n)
+(define (repeated-log-rec f n)
+  (cond
+    [(= n 0) identity]
+    [(even? n) (repeated-log-rec (double f) (/ n 2))]
+    [else (compose f (repeated-log-rec f (- n 1)))]))
+
+; successive squaring + iterative
+(define (repeated f n)
+  (define (iter g more i)
+    (cond
+      [(>= 0 i) more]
+      [(even? i) (iter (double g) more (/ i 2))]
+      [else
+       (iter (double g) (compose g more) (/ (- i 1) 2))]))
+  (iter f identity n))
+
+; (define rep repeated-log-rec)
+; (define rep repeated)
+; ((rep inc 10) 1)
