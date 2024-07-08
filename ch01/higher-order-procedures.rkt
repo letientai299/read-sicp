@@ -224,41 +224,6 @@
 ; (fixed-point (lambda (x) (+ 1 (/ 1 x))) 3.0)
 
 ;------------------------------------------------------------------------------
-; Ex 1.36
-;------------------------------------------------------------------------------
-
-;; computing root of x^x = 1000, thus x = log(1000)/log(x),
-;; first guess is sqrt(log(1000))
-(define (f1.36 x)
-  (/ (log 1000) (log x)))
-
-(define f1.36-guess (sqrt (log 1000)))
-; (fixed-point f1.36 f1.36-guess)
-
-(define (plot-for-1.36)
-  (parameterize ([plot-width 600]
-                 [plot-height 400]
-                 [plot-y-transform log-transform])
-    (define (f x)
-      (expt x x))
-
-    (define guesses (fixed-point-guesses f1.36 f1.36-guess))
-    (define x-max (argmax identity guesses))
-    (define res (car guesses))
-
-    (plot-file
-     (list (hrule 1000 #:label "y = 1000" #:color 1)
-           (function f 2 x-max #:label "y = x^x" #:color 2)
-           (point-label (vector res (f res)))
-           (points (map vector guesses (map f guesses))
-                   #:sym 'plus
-                   #:label "guesses"
-                   #:color 3))
-     "1.36.graph.svg")))
-
-; (plot-for-1.36)
-
-;------------------------------------------------------------------------------
 ; Ex 1.37
 ;------------------------------------------------------------------------------
 
