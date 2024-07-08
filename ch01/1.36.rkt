@@ -120,22 +120,3 @@
      "1.36.iter-counts.svg")))
 
 ; (visualize-guesses-counts)
-
-(define (approximate-x A n)
-  (define (iter i acc l mul)
-    (if (= n i)
-        acc
-        (iter ;
-         (inc i)
-         (+ acc (* mul (log l)))
-         (log l)
-         (* mul -1))))
-  (/ A (iter 0 0 A 1)))
-
-(define l (repeated log 2))
-(define x0 2)
-(for ([n (in-range 1 34)])
-  (printf "log^~a(~a) = ~a\n" n x0 ((repeated log n) x0)))
-
-(approximate-x (log 1000) 2)
-(approximate-x (log 1000) 1)
