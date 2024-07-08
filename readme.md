@@ -52,3 +52,9 @@ printing, helpful to define named test cases, see [`1.3.rkt`](./ch01/1.3.rkt).
 (struct args (a b c) #:transparent)
 (print (args 1 2 3))
 ```
+
+## Later
+
+- [ ] Check this link and see if we can find a truly iterative solution for
+      `count-change`:
+      https://wiki.c2.com/?StructureAndInterpretationOfComputerPrograms
