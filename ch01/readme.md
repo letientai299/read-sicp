@@ -39,7 +39,7 @@ Lisp:
 
 ## 1.1 The Elements of Programming
 
-https://sarabander.github.io/sicp/html/1_002e1.xhtml#g_t1_002e1
+https://sarabander.github.io/sicp/html/1_002e1.xhtml
 
 Mechanisms to combine simple ideas to form more complex ideas.
 
@@ -226,7 +226,7 @@ internal procedures by make use of enclosing procedure scoped variables, e.g.
 
 ## 1.2 Procedures and the Processes They Generate
 
-https://sarabander.github.io/sicp/html/1_002e2.xhtml#g_t1_002e2
+https://sarabander.github.io/sicp/html/1_002e2.xhtml
 
 After 1.1, we know: primitive arithmetic operations, how to combine them, define
 compound procedures. We're still lacking
@@ -462,6 +462,8 @@ Footnote 47 (highlighted by me):
 
 ## 1.3 Formulating Abstractions with Higher-Order Procedures
 
+https://sarabander.github.io/sicp/html/1_002e3.xhtml
+
 Procedures that manipulate procedures are called **higher-order procedures**.
 
 ### 1.3.1 Procedures as Arguments
@@ -545,6 +547,8 @@ for procedure's free variables.
 - [x] [1.43](./1.43.md)
 - [x] [1.44](./1.44.md)
 - [x] [1.45](./1.45.md):
-  > TODO (tai): done as the exercise require, experiment and find the result,
-  > but not really done since I can't prove or explain why the result works yet.
+  > TODO (tai): continue or conclude 1.45
+  >
+  > I've done as the exercise require, experiment and find the result, but I was
+  > unable to prove or explain why the result works.
 - [x] [1.46](./1.46.md)
