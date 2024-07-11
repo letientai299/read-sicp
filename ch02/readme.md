@@ -56,6 +56,16 @@ What to expect in this chaper:
 
 https://sarabander.github.io/sicp/html/2_002e1.xhtml#Example_003a-Arithmetic-Operations-for-Rational-Numbers
 
+**Data abstraction**: methodology, isolate how a object is used from the details
+of how it is constructed. Basically, it's the **Encapsulation** in OOP.
+
+These concepts remind me of OOP. I know that we will get these in chapter 3. I
+just don't think we will hit them here, as I expect this chapter is more about
+standard data structure.
+
+- _Constructors_: implement concrete data representation
+- _Selectors_: implement data accessing that allow other "programs" use it.
+
 ### 2.1.1 Example: Arithmetic Operations for Rational Numbers
 
 https://sarabander.github.io/sicp/html/2_002e1.xhtml#Example_003a-Arithmetic-Operations-for-Rational-Numbers
@@ -86,15 +96,44 @@ tree := (cons val (cons (cons ...) (cons ...)))
 
 #### Exercise
 
-- [x] [2.1](./2.1.md)
+- [x] [2.1](./2.1/2.1.md)
 
 ### 2.1.2 Abstraction Barriers
 
 https://sarabander.github.io/sicp/html/2_002e1.xhtml#Abstraction-Barriers
 
+> Constraining ... to a few interface procedures helps us design programs as
+> well as modify them, ... allows us to maintain the flexibility to consider
+> alternate implementations,... gives us a way to defer that decision without
+> losing the ability to make progress on the rest of the system.
+
+#### Exercise
+
+- [x] [2.2](./2.1/2.2.md)
+- [x] [2.3](./2.1/2.3.md)
+
 ### 2.1.3 What Is Meant by Data?
 
+#### Exercise
+
+- [ ] [2.4](./2.1/2.4.md)
+- [ ] [2.5](./2.1/2.5.md)
+- [ ] [2.6](./2.1/2.6.md)
+
 ### 2.1.4 Extended Exercise: Interval Arithmetic
+
+#### Exercise
+
+- [ ] [2.7](./2.1/2.7.md)
+- [ ] [2.8](./2.1/2.8.md)
+- [ ] [2.9](./2.1/2.9.md)
+- [ ] [2.10](./2.1/2.10.md)
+- [ ] [2.11](./2.1/2.11.md)
+- [ ] [2.12](./2.1/2.12.md)
+- [ ] [2.13](./2.1/2.13.md)
+- [ ] [2.14](./2.1/2.14.md)
+- [ ] [2.15](./2.1/2.15.md)
+- [ ] [2.16](./2.1/2.16.md)
 
 ## 2.2 Hierarchical Data and the Closure Property
 
