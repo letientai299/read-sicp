@@ -16,9 +16,22 @@ The solution code is written in Racket, hopefully sufficiently documented and
 tested. I aim to learn enough Racket to complete the book, as well as writing
 something useful (in the context of this repo) with it.
 
+## Notes and status
+
+- [Chapter 1](./ch01/readme.md)
+- [Chapter 2](./ch02/readme.md)
+- Chapter 3: TODO
+- Chapter 4: TODO
+- Chapter 5: TODO
+
 ## Tools
 
-[Racket](https://racket-lang.org), with following packages:
+### Core
+
+I use [Racket](https://racket-lang.org) because it seems to have tons of
+features and [a dedicated text book](https://htdp.org) which aims to be the
+successor of SICP. Beside the standard distribution of Racket, I also use these
+packages:
 
 - [`fmt`](https://docs.racket-lang.org/fmt/): to have `raco fmt` for formatting
   racket code.
@@ -33,13 +46,18 @@ something useful (in the context of this repo) with it.
   ```
 
 - [`racket-langserver`](https://github.com/jeapostrophe/racket-langserver): to
-  have some editor supports when using Vim/VsCode.
+  have some editor supports when using vim.
 - [`debug`](https://docs.racket-lang.org/debug/index.html): to quickly show the
   expression and its value.
 
-## Notes and status
+### Helpers
 
-- [Chapter 1](./ch01/readme.md)
+- [nodemon](https://nodemon.io): for running `*rkt` files on save.
+- [markserv](https://github.com/markserv/markserv): live review all Markdown
+  files in the whole project, supports $\LaTeX$,
+  [plantUML](https://plantuml.com) and [mermaid](https://mermaid.js.org).
+- [Violentmonkey](https://violentmonkey.github.io): to quickly copy contents
+  from book website into my notes. See [`./sicp.user.js`](./sicp.user.js).
 
 ## Racket tips
 
