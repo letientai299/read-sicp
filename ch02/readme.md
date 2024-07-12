@@ -114,10 +114,57 @@ https://sarabander.github.io/sicp/html/2_002e1.xhtml#Abstraction-Barriers
 
 ### 2.1.3 What Is Meant by Data?
 
+https://sarabander.github.io/sicp/html/2_002e1.xhtml#What-Is-Meant-by-Data_003f
+
+The idea (highlighted by me):
+
+> Think of data as defined by **some collection of selectors and constructors**,
+> together with **specified conditions** that these procedures must fulfill in
+> order to be a valid representation.
+
+I was surprise when reading the next paragraph:
+
+> We could implement `cons`, `car`, and `cdr` without using any data structures
+> at all but only using procedures.
+
+My attempt to design those procedures before reading the book's solution, with
+only those knowledge provided by the book at this point.
+
+<details >
+  <summary>Challenge yourself. Think about it first!</summary>
+
+```scheme
+; must store x y some where. x and y need not to be primitive.
+; what we know:
+; - primitive, procedure
+; - procedure is also data
+; - lambda
+; Then, the trick is to use lambda, keep x and y in a closure.
+(define (cons x y)
+  (lambda (want-x?) (if want-x? x y)))
+
+(define (car pair) (pair #true))
+(define (cdr pair) (pair #false))
+```
+
+</details>
+
+It's cool! The foundation of all data structure, _a pair_, could be implemented
+without any low level concepts like array, memory address. Now, it would be
+mind-blowing if `lambda` itselt can be defined using only concepts introduced
+before it. But I guess that is not possible. We can't really escape the physics
+of hardware.
+
+> The ability to manipulate procedures as objects automatically provides the
+> ability to represent compound data.
+
+**Message passing**: procedural representations of data
+
 #### Exercise
 
-- [ ] [2.4](./2.1/2.4.md)
-- [ ] [2.5](./2.1/2.5.md)
+- [x] [2.4](./2.1/2.4.md): another mind-blowing way to immplement `cons`, `car`,
+      `cdr`, of course, with even less efficient.
+- [x] [2.5](./2.1/2.5.md)
 - [ ] [2.6](./2.1/2.6.md)
 
 ### 2.1.4 Extended Exercise: Interval Arithmetic

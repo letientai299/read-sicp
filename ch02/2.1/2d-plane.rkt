@@ -143,6 +143,8 @@
                  [plot-y-axis? #f]
                  [plot-x-far-axis? #f]
                  [plot-y-far-axis? #f]
+                 [plot-x-label #f]
+                 [plot-y-label #f]
                  [plot-width draw-width]
                  [plot-height (plot-aspect draw-width)])
     (define x-min -2)
