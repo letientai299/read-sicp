@@ -348,7 +348,7 @@ See [`./count-change.rkt`](./count-change.rkt).
 
 - [x] [1.11](./1.11.md)
 - [x] [1.12](./1.12.md)
-- [x] [1.13](./1.13.md)
+- [x] [1.13](./1.13.md): an exploration about Fibonacci sequence.
 
 ### 1.2.3 Orders of Growth
 
@@ -382,7 +382,8 @@ analyze both upper and lower bounds.
 
 #### Exercises
 
-- [x] [1.14](./1.14.md)
+- [x] [1.14](./1.14.md): analyzing the brute force solution for `count-change`
+      presented in the book.
 - [x] [1.15](./1.15.md)
 
 ### 1.2.4 Exponentiation
@@ -517,7 +518,8 @@ On the `fixed-point` algorithm:
 #### Exercises
 
 - [x] [1.35](./1.35.md)
-- [x] [1.36](./1.36.md)
+- [x] [1.36](./1.36.md): my 1st attempt to understand the effect of average
+      damping. See [1.45][./1.45.md] for the 2nd attempt.
 - [x] [1.37](./1.37.md)
 - [x] [1.38](./1.38.md)
 - [x] [1.39](./1.39.md)
@@ -546,9 +548,6 @@ for procedure's free variables.
 - [x] [1.42](./1.42.md)
 - [x] [1.43](./1.43.md)
 - [x] [1.44](./1.44.md)
-- [x] [1.45](./1.45.md):
-  > TODO (tai): continue or conclude 1.45
-  >
-  > I've done as the exercise require, experiment and find the result, but I was
-  > unable to prove or explain why the result works.
+- [x] [1.45](./1.45.md): an attempt to find the best pair of factors for
+      Newton's transformation.
 - [x] [1.46](./1.46.md)

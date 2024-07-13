@@ -165,7 +165,7 @@ of hardware.
 - [x] [2.4](./2.1/2.4.md): another mind-blowing way to immplement `cons`, `car`,
       `cdr`, of course, with even less efficient.
 - [x] [2.5](./2.1/2.5.md)
-- [x] [2.6](./2.1/2.6.md)
+- [x] [2.6](./2.1/2.6.md): first encounter with $\lambda$-calculus.
 
 ### 2.1.4 Extended Exercise: Interval Arithmetic
 
