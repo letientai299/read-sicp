@@ -54,8 +54,7 @@ packages:
 
 - [nodemon](https://nodemon.io): for running `*rkt` files on save.
 - [markserv](https://github.com/markserv/markserv): live review all Markdown
-  files in the whole project, supports $\LaTeX$,
-  [plantUML](https://plantuml.com) and [mermaid](https://mermaid.js.org).
+  files in the whole project, supports $\LaTeX$.
 - [Violentmonkey](https://violentmonkey.github.io): to quickly copy contents
   from book website into my notes. See [`./sicp.user.js`](./sicp.user.js).
 
@@ -70,9 +69,3 @@ printing, helpful to define named test cases, see [`1.3.rkt`](./ch01/1.3.rkt).
 (struct args (a b c) #:transparent)
 (print (args 1 2 3))
 ```
-
-## Later
-
-- [ ] Check this link and see if we can find a truly iterative solution for
-      `count-change`:
-      https://wiki.c2.com/?StructureAndInterpretationOfComputerPrograms
