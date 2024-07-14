@@ -169,18 +169,34 @@ of hardware.
 
 ### 2.1.4 Extended Exercise: Interval Arithmetic
 
+https://sarabander.github.io/sicp/html/2_002e1.xhtml#Extended-Exercise_003a-Interval-Arithmetic
+
+I don't understand why the `div-interval` was defined that way, until I read
+[Interval arithmetic][interval-arithmetic]
+
+[interval-arithmetic]: https://en.wikipedia.org/wiki/Interval_arithmetic
+
+> A binary operation $*$ on two intervals ... (creates) the set of all possible
+> value of $x*y$, where $x$ and $y$ are in their corresponding intervals.
+
 #### Exercise
 
-- [ ] [2.7](./2.1/2.7.md)
-- [ ] [2.8](./2.1/2.8.md)
-- [ ] [2.9](./2.1/2.9.md)
-- [ ] [2.10](./2.1/2.10.md)
-- [ ] [2.11](./2.1/2.11.md)
-- [ ] [2.12](./2.1/2.12.md)
-- [ ] [2.13](./2.1/2.13.md)
-- [ ] [2.14](./2.1/2.14.md)
-- [ ] [2.15](./2.1/2.15.md)
-- [ ] [2.16](./2.1/2.16.md)
+- [x] [2.7](./2.1/2.7.md)
+- [x] [2.8](./2.1/2.8.md)
+- [x] [2.9](./2.1/2.9.md)
+- [x] [2.10](./2.1/2.10.md)
+- [x] [2.11](./2.1/2.11.md)
+- [x] [2.12](./2.1/2.12.md)
+- [x] [2.13](./2.1/2.13.md)
+
+These 3 exercises strongly emphasize the important of fully understand what our
+expressions mean, because (from ex 2.16)
+
+> (seemingly) equivalent algebraic expressions may lead to different answers
+
+- [x] [2.14](./2.1/2.14.md)
+- [x] [2.15](./2.1/2.15.md)
+- [x] [2.16](./2.1/2.16.md)
 
 ## 2.2 Hierarchical Data and the Closure Property
 
