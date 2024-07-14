@@ -37,6 +37,18 @@ Lisp:
 - Experimental as first, emphasis on symbol manipulation.
 - A family of dialects, Scheme (the dialect the book is using) is one of them.
 
+This chapter shows the basic of [Computational Complexity][com-com], higher
+order functions; provides the baseline and asks us to implement various math
+techniques in Lisp using those knowledge.
+
+Once you complete the chapter and grasp those math, you might enjoy the article
+and appriciate the genius engineering of the [Fast Inverse Square Root
+Algorithm][fast-isqrt].
+
+[com-com]: https://en.wikipedia.org/wiki/Computational_complexity
+[fast-isqrt]:
+  https://github.com/francisrstokes/githublog/blob/main/2024%2F5%2F29%2Ffast-inverse-sqrt.md
+
 ## 1.1 The Elements of Programming
 
 https://sarabander.github.io/sicp/html/1_002e1.xhtml
@@ -519,7 +531,7 @@ On the `fixed-point` algorithm:
 
 - [x] [1.35](./1.35.md)
 - [x] [1.36](./1.36.md): my 1st attempt to understand the effect of average
-      damping. See [1.45][./1.45.md] for the 2nd attempt.
+      damping. See [1.45](./1.45.md) for the 2nd attempt.
 - [x] [1.37](./1.37.md)
 - [x] [1.38](./1.38.md)
 - [x] [1.39](./1.39.md)
