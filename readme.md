@@ -18,6 +18,7 @@ something useful (in the context of this repo) with it.
 
 ## Notes and status
 
+- [Intro](./intro.md)
 - [Chapter 1](./ch01/readme.md)
 - [Chapter 2](./ch02/readme.md)
 - Chapter 3: TODO
