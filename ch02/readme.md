@@ -218,10 +218,18 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Representing-Sequences
 
 #### Exercises
 
+List operations
+
 - [x] [2.17](./2.2/2.17.md)
 - [x] [2.18](./2.2/2.18.md)
 - [x] [2.19](./2.2/2.19.md)
 - [x] [2.20](./2.2/2.20.md)
+
+Mapping over lists
+
+- [x] [2.21](./2.2/2.21.md)
+- [x] [2.22](./2.2/2.22.md)
+- [x] [2.23](./2.2/2.23.md)
 
 ### 2.2.2 Hierarchical Structures
 
