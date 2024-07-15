@@ -200,7 +200,28 @@ expressions mean, because (from ex 2.16)
 
 ## 2.2 Hierarchical Data and the Closure Property
 
+https://sarabander.github.io/sicp/html/2_002e2.xhtml#Hierarchical-Data-and-the-Closure-Property
+
+**Closure property**:
+
+- An operation for _combining_ data objects satisfies the closure property if
+  the results can themselves be combined using the same operation.
+- The term _closure_ here come from abstract algebra, not to be confused with
+  the concept of [function closure][fn-closure]: inner function that can use
+  outer function variables.
+
+[fn-closure]: https://en.wikipedia.org/wiki/Closure_(computer_programming)
+
 ### 2.2.1 Representing Sequences
+
+https://sarabander.github.io/sicp/html/2_002e2.xhtml#Representing-Sequences
+
+#### Exercises
+
+- [x] [2.17](./2.2/2.17.md)
+- [x] [2.18](./2.2/2.18.md)
+- [x] [2.19](./2.2/2.19.md)
+- [x] [2.20](./2.2/2.20.md)
 
 ### 2.2.2 Hierarchical Structures
 
