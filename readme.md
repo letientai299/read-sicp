@@ -50,6 +50,9 @@ packages:
   have some editor supports when using vim.
 - [`debug`](https://docs.racket-lang.org/debug/index.html): to quickly show the
   expression and its value.
+- [`sdraw`](https://docs.racket-lang.org/sdraw/index.html): to draw _box and
+  pointer_ diagrams (also called _cons-cell_ diagrams) and export into SVG using
+  [`./utils/draw.rkt`](./utils/draw.rkt).
 
 ### Helpers
 

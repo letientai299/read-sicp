@@ -233,6 +233,26 @@ Mapping over lists
 
 ### 2.2.2 Hierarchical Structures
 
+https://sarabander.github.io/sicp/html/2_002e2.xhtml#Hierarchical-Structures
+
+#### Exercises
+
+- [x] [2.24](./2.2/2.24.md)
+- [x] [2.25](./2.2/2.25.md)
+- [x] [2.26](./2.2/2.26.md)
+- [x] [2.27](./2.2/2.27.md)
+- [x] [2.28](./2.2/2.28.md)
+- [x] [2.29](./2.2/2.29.md)
+
+[Mapping over trees][map-tree]
+
+[map-tree]:
+  https://sarabander.github.io/sicp/html/2_002e2.xhtml#Mapping-over-trees
+
+- [ ] [2.30](./2.2/2.30.md)
+- [ ] [2.31](./2.2/2.31.md)
+- [ ] [2.32](./2.2/2.32.md)
+
 ### 2.2.3 Sequences as Conventional Interfaces
 
 ### 2.2.4 Example: A Picture Language
