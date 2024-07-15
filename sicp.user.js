@@ -68,65 +68,62 @@ function findHeader(from) {
 
 function enableCopyContent(elem) {
   focusable(elem);
-  highlightOnKeyPress(elem);
-  const content = elem.innerText;
-  elem.addEventListener("click", () => navigator.clipboard.writeText(content));
-  elem.addEventListener("keydown", (event) => {
-    if (isExpectedKeyCode(event)) {
-      navigator.clipboard.writeText(content);
-    }
+  handleIfMatch(elem, ["click", "keydown"], isExpected, () => {
+    navigator.clipboard.writeText(elem.innerText);
   });
+  highlight(elem);
 }
 
 function enableCopyLink(elem, id) {
   focusable(elem);
-  highlightOnKeyPress(elem);
-
+  highlight(elem);
   const loc = document.location;
   const url = `${loc.protocol}//${loc.host}${loc.pathname}#${id}`;
-  elem.addEventListener("click", () => navigator.clipboard.writeText(url));
-  elem.addEventListener("keydown", (event) => {
-    if (isExpectedKeyCode(event)) {
-      navigator.clipboard.writeText(url);
-    }
-  });
+
+  handleIfMatch(elem, ["click", "keydown"], isExpected, () =>
+    navigator.clipboard.writeText(url)
+  );
 }
-
-function highlightOnKeyPress(elem) {
-  elem.addEventListener("keypress", (event) => {
-    if (isExpectedKeyCode(event)) {
-      elem.style.opacity = 0.5;
-      event.preventDefault();
+function highlight(elem) {
+  handleIfMatch(
+    elem,
+    ["keypress", "keyup", "mouseup", "mousedown"],
+    true,
+    (event) => {
+      elem.style.opacity = ["keypress", "mousedown"].includes(event.type)
+        ? 0.5
+        : 1;
     }
-  });
-
-  elem.addEventListener("keyup", (event) => {
-    if (isExpectedKeyCode(event)) {
-      elem.style.opacity = 1;
-      event.preventDefault();
-    }
-  });
-}
-
-function isExpectedKeyCode(event) {
-  return event.code === "Enter";
+  );
 }
 
 function focusable(elem) {
   elem.tabIndex = 0;
-  ["mouseover", "focus"].forEach((event) => {
-    elem.addEventListener(event, () => setOutline(elem));
+  handleIfMatch(elem, ["mouseover", "focus"], true, () => {
+    elem.style.outline = `5px auto red`;
   });
 
-  ["mouseout", "blur"].forEach((event) => {
-    elem.addEventListener(event, () => clearOutline(elem));
+  handleIfMatch(elem, ["mouseout", "blur"], true, () => {
+    elem.style.outline = ``;
   });
 }
 
-function setOutline(elem) {
-  elem.style.outline = `5px auto red`;
+function handleIfMatch(elem, types, match, handle) {
+  types.forEach((type) =>
+    elem.addEventListener(type, (event) => {
+      const ok = (typeof match === "boolean" && match === true) || match(event);
+      if (ok) {
+        swallow(event);
+        handle(event);
+      }
+    })
+  );
 }
 
-function clearOutline(elem) {
-  elem.style.outline = ``;
+function isExpected(event) {
+  return event.type === "click" || event.code === "Enter";
+}
+
+function swallow(event) {
+  event.stopPropagation();
 }
