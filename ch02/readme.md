@@ -264,13 +264,13 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Sequences-as-Conventional-I
 
 [Sequence Operations](https://sarabander.github.io/sicp/html/2_002e2.xhtml#Sequence-Operations)
 
-- [ ] [2.33](./2.2/2.33.md)
-- [ ] [2.34](./2.2/2.34.md)
-- [ ] [2.35](./2.2/2.35.md)
-- [ ] [2.36](./2.2/2.36.md)
-- [ ] [2.37](./2.2/2.37.md)
-- [ ] [2.38](./2.2/2.38.md)
-- [ ] [2.39](./2.2/2.39.md)
+- [x] [2.33](./2.2/2.33.md)
+- [x] [2.34](./2.2/2.34.md)
+- [x] [2.35](./2.2/2.35.md)
+- [x] [2.36](./2.2/2.36.md)
+- [x] [2.37](./2.2/2.37.md)
+- [x] [2.38](./2.2/2.38.md)
+- [x] [2.39](./2.2/2.39.md)
 
 [Nested Mappings](https://sarabander.github.io/sicp/html/2_002e2.xhtml#Nested-Mappings)
 
