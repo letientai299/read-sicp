@@ -249,9 +249,9 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Hierarchical-Structures
 [map-tree]:
   https://sarabander.github.io/sicp/html/2_002e2.xhtml#Mapping-over-trees
 
-- [ ] [2.30](./2.2/2.30.md)
-- [ ] [2.31](./2.2/2.31.md)
-- [ ] [2.32](./2.2/2.32.md)
+- [x] [2.30](./2.2/2.30.md)
+- [x] [2.31](./2.2/2.31.md)
+- [x] [2.32](./2.2/2.32.md)
 
 ### 2.2.3 Sequences as Conventional Interfaces
 
