@@ -274,9 +274,17 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Sequences-as-Conventional-I
 
 [Nested Mappings](https://sarabander.github.io/sicp/html/2_002e2.xhtml#Nested-Mappings)
 
-- [ ] [2.40](./2.2/2.40.md)
-- [ ] [2.41](./2.2/2.41.md)
-- [ ] [2.42](./2.2/2.42.md)
+This part introduces `flatmap` (mapping and flattening/appending result list),
+hints about a strategy to process infinite sequence. The book seems to focus on
+forming strategy with reusable pieces rather than efficient algorithms.
+
+From now on, to keep my solution code file clean, I'll use more Racket built-in
+functions (e.g. `foldr`, `foldl`, `map`, `flatten`, `apply`, ...) instead of
+those provided by the book.
+
+- [x] [2.40](./2.2/2.40.md)
+- [x] [2.41](./2.2/2.41.md)
+- [x] [2.42](./2.2/2.42.md)
 - [ ] [2.43](./2.2/2.43.md)
 
 ### 2.2.4 Example: A Picture Language

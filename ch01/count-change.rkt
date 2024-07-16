@@ -120,7 +120,7 @@
 
 ; code to verify and test the visualization for ex 1.14
 ; (define stat-11 (count-change-visualized 11))
-; (show (list stat-11))
+; (debug (list stat-11))
 ; (visualize stat-11)
 
 ; generate some data to analyze count-change order of growth

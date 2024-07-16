@@ -1,12 +1,16 @@
 #lang racket
 
-(require "../../utils/show.rkt")
+(require "../../utils/debug.rkt")
 
 (define (accumulate op initial sequence)
   (if (null? sequence)
       initial
       (op (car sequence)
           (accumulate op initial (cdr sequence)))))
+
+(module+ test
+  (require rackunit)
+  (printf "\nTest debug output\n\n"))
 
 ;-----------------------------------------------------------
 ; Ex 2.33.
@@ -110,10 +114,13 @@
         (list 4 5 6 6)
         (list 6 7 8 9)))
 
-(debug (transpose mat))
-(debug (matrix-*-vector mat vec))
-(debug (matrix-*-matrix mat (transpose mat)))
-(debug (matrix-*-matrix (transpose mat) mat))
+(module+ test
+  (require rackunit)
+
+  (debug (transpose mat))
+  (debug (matrix-*-vector mat vec))
+  (debug (matrix-*-matrix mat (transpose mat)))
+  (debug (matrix-*-matrix (transpose mat) mat)))
 
 ;-----------------------------------------------------------
 ; Ex 2.38
@@ -172,3 +179,30 @@
     (define want (reverse x))
     (check-equal? (reverse-fr x) want "fold-right")
     (check-equal? (reverse-fl x) want "fold-left")))
+
+;------------------------------------------------------------------------------
+; Nested mappsings example: find i, j in [1,n] such that i+j is prime.
+; https://sarabander.github.io/sicp/html/2_002e2.xhtml#Nested-Mappings
+;------------------------------------------------------------------------------
+(require "../../ch01/prime.rkt")
+
+(struct pair (x y) #:transparent)
+
+(define (unique-pairs n)
+  (if (>= 0 n)
+      null
+      (let ([pre (- n 1)])
+        (append (unique-pairs pre)
+                (map (lambda (i) (pair n i))
+                     (inclusive-range 1 pre))))))
+
+(define (collect-prime-sum p res)
+  (if (prime-sum? p) (cons p res) res))
+
+(define (prime-sum? p)
+  (prime? (+ (pair-x p) (pair-y p))))
+
+(define (prime-sum-pairs n)
+  (accumulate collect-prime-sum null (unique-pairs n)))
+
+(debug (prime-sum-pairs 6))
