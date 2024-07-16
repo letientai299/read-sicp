@@ -255,6 +255,30 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Hierarchical-Structures
 
 ### 2.2.3 Sequences as Conventional Interfaces
 
+https://sarabander.github.io/sicp/html/2_002e2.xhtml#Sequences-as-Conventional-Interfaces
+
+> ... make the signal-flow structure manifest in the procedures we write, ...
+> would increase the conceptual clarity.
+
+#### Exercise
+
+[Sequence Operations](https://sarabander.github.io/sicp/html/2_002e2.xhtml#Sequence-Operations)
+
+- [ ] [2.33](./2.2/2.33.md)
+- [ ] [2.34](./2.2/2.34.md)
+- [ ] [2.35](./2.2/2.35.md)
+- [ ] [2.36](./2.2/2.36.md)
+- [ ] [2.37](./2.2/2.37.md)
+- [ ] [2.38](./2.2/2.38.md)
+- [ ] [2.39](./2.2/2.39.md)
+
+[Nested Mappings](https://sarabander.github.io/sicp/html/2_002e2.xhtml#Nested-Mappings)
+
+- [ ] [2.40](./2.2/2.40.md)
+- [ ] [2.41](./2.2/2.41.md)
+- [ ] [2.42](./2.2/2.42.md)
+- [ ] [2.43](./2.2/2.43.md)
+
 ### 2.2.4 Example: A Picture Language
 
 ## 2.3 Symbolic Data
