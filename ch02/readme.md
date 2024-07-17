@@ -319,7 +319,17 @@ https://sarabander.github.io/sicp/html/2_002e2.xhtml#Example_003a-A-Picture-Lang
 
 ## 2.3 Symbolic Data
 
+https://sarabander.github.io/sicp/html/2_002e3.xhtml
+
 ### 2.3.1 Quotation
+
+https://sarabander.github.io/sicp/html/2_002e3.xhtml#Quotation
+
+#### Exercises
+
+- [x] [2.53](./2.3/2.53.md)
+- [x] [2.54](./2.3/2.54.md)
+- [x] [2.55](./2.3/2.55.md)
 
 ### 2.3.2 Example: Symbolic Differentiation
 
