@@ -12,3 +12,11 @@
    (lambda ()
      (display ;
       (convert (sdraw obj #:null-style '/) 'svg-bytes)))))
+
+(define (save-img pict name)
+  (with-output-to-file ;
+   name
+   #:exists 'truncate/replace
+   (lambda ()
+     (display ;
+      (convert pict 'png-bytes)))))

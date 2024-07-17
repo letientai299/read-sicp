@@ -289,6 +289,34 @@ those provided by the book.
 
 ### 2.2.4 Example: A Picture Language
 
+https://sarabander.github.io/sicp/html/2_002e2.xhtml#Example_003a-A-Picture-Language
+
+> a rational-number representation could be anything at all that satisfies an
+> appropriate condition...
+>
+> Painters are our second example of a procedural representation for data.
+
+**Stratified design**:
+
+- A complex system should be structured as a sequence of levels that are
+  described using a sequence of languages
+- Each level is constructed by combining parts that are regarded as primitive at
+  that level.
+- The language used at each level of a stratified design has primitives, means
+  of combination, and means of abstraction appropriate to that level of detail.
+
+#### Exercises
+
+- [x] [2.44](./2.2/2.44.md)
+- [x] [2.45](./2.2/2.45.md)
+- [x] [2.46](./2.2/2.46.md)
+- [x] [2.47](./2.2/2.47.md)
+- [x] [2.48](./2.2/2.48.md)
+- [x] [2.49](./2.2/2.49.md)
+- [x] [2.50](./2.2/2.50.md)
+- [x] [2.51](./2.2/2.51.md)
+- [x] [2.52](./2.2/2.52.md)
+
 ## 2.3 Symbolic Data
 
 ### 2.3.1 Quotation
