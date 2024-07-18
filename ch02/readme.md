@@ -340,9 +340,7 @@ https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Symbolic-Diffe
 
 #### Exercises
 
-> TODO (tai): show these exercise and do something cool with symbolic math.
-
-- [ ] [2.56](./2.2/2.56.md)
+- [x] [2.56](./2.2/2.56.md)
 - [ ] [2.57](./2.2/2.57.md)
 - [ ] [2.58](./2.2/2.58.md)
 
