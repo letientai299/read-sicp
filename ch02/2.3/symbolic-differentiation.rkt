@@ -19,7 +19,8 @@
   (cadr e))
 
 (define (augend e)
-  (caddr e))
+  (let ([terms (cddr e)])
+    (if (pair? (cdr terms)) (cons '+ terms) (car terms))))
 
 (define (make-sum a1 a2)
   (cond
@@ -34,7 +35,8 @@
   (cadr e))
 
 (define (multiplicand e)
-  (caddr e))
+  (let ([terms (cddr e)])
+    (if (pair? (cdr terms)) (cons '* terms) (car terms))))
 
 (define (make-product m1 m2)
   (cond
@@ -145,15 +147,16 @@
 ; Trials
 ;-----------------------------------------------------------
 
-(debug (deriv '(+ x 3) 'x))
-(debug (deriv '(* 2 (* x x)) 'x))
-(debug (deriv '(* x y) 'x))
-(debug (deriv '(* (* x y) (+ x 3)) 'x))
+; (debug (deriv '(ln (+ 2 x)) 'x))
+; (debug (deriv '(^ x 2) 'x))
+; (debug (deriv '(/ (^ x 2) (+ x 1)) 'x))
 
-(debug (deriv '(ln (+ 2 x)) 'x))
-(debug (deriv '(^ x 2) 'x))
-(debug (deriv '(/ (^ x 2) (+ x 1)) 'x))
+(define exp '(* 1 2 3))
+(debug exp)
+(debug (multiplier exp))
+(debug (multiplicand exp))
+(debug (multiplier (multiplicand exp)))
+(debug (multiplicand (multiplicand exp)))
 
-(deriv '(ln (+ 2 x)) 'x)
-(deriv '(^ x 2) 'x)
-(deriv '(/ (^ x 2) (+ x 1)) 'x)
+(deriv '(* (* x y) (+ x 3)) 'x)
+(deriv '(* x y (+ x 3)) 'x)

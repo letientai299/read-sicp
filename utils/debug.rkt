@@ -14,7 +14,7 @@
        (debug more ...))]))
 
 (define-syntax-rule (debug-show arg)
-  (show "debug>\e[0;34m" 'arg "\e[0m=" arg))
+  (show ">\e[0;34m" 'arg "\e[0m=" arg))
 
 (define (show . vs)
   (for ([v vs])
