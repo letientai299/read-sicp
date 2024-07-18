@@ -38,12 +38,68 @@
 
 (define (make-product m1 m2)
   (cond
-    [(number? m1) (make-product m2 m1)]
-    [(number? m2)
-     (cond
-       [(= 0 m2) 0]
-       [(= 1 m2) m1])]
+    [(or (=number? m1 0) (=number? m2 0)) 0]
+    [(=number? m1 1) m2]
+    [(=number? m2 1) m1]
     [else (list '* m1 m2)]))
+
+(define (=number? e n)
+  (and (number? e) (= e n)))
+
+(define (make-exponentiation base power)
+  (cond
+    [(=number? base 0) (if (= power 0) 1 0)]
+    [(=number? base 1) 1]
+    [(=number? power 0) 1]
+    [(=number? power 1) base]
+    [else (list '^ base power)]))
+
+(define (exponentiation? e)
+  (and (pair? e) (eq? '^ (car e))))
+
+(define (base e)
+  (cadr e))
+
+(define (power e)
+  (caddr e))
+
+(define (make-ln exp)
+  (cond
+    [(symbol? exp)
+     ; if `exp` is a symbol, then return 1 if it's the constant `e`,
+     ; otherwise, form the natural logarithm expression.
+     (if (eq? exp 'e) 1 (list 'ln exp))]
+
+    ; if `exp` is not a symbol, we check if it's a number and handle some
+    ; special case.
+    [(number? exp)
+     (cond
+       [(= 1) 0]
+       [(> 0) (list 'ln exp)]
+       [else
+        (error "ln() is not defined for non positive number"
+               exp)])]
+
+    [else (error "unknown expression type: ln()" exp)]))
+
+(define (ln? e)
+  (and (pair? e) (eq? 'ln (car e))))
+
+(define (arg e)
+  (cadr e))
+
+(define (division? e)
+  (and (pair? e) (eq? '/ (car e))))
+(define (dividend e)
+  (cadr e))
+(define (divisor e)
+  (caddr e))
+
+(define (make-division dividend divisor)
+  (cond
+    [(=number? divisor 0) (error "can't divide for zero")]
+    [(=number? dividend 0) 0]
+    [else (list '/ dividend divisor)]))
 
 ;-----------------------------------------------------------
 ; Compute re derivative of the given function
@@ -68,6 +124,21 @@
        (make-sum (make-product a (d b))
                  (make-product b (d a))))]
 
+    [(division? exp)
+     (let ([u (dividend exp)] [v (divisor exp)])
+       (make-division
+        (make-sum (make-product v (d u))
+                  (make-product -1 (make-product u (d v))))
+        (make-exponentiation v 2)))]
+
+    [(ln? exp)
+     (let ([u (arg exp)]) (make-division (d u) u))]
+
+    [(exponentiation? exp)
+     (let ([u (base exp)] ;
+           [v (power exp)])
+       (make-product exp (d (make-product v (make-ln u)))))]
+
     [else (error "unknown expression type: DERIV" exp)]))
 
 ;-----------------------------------------------------------
@@ -75,5 +146,14 @@
 ;-----------------------------------------------------------
 
 (debug (deriv '(+ x 3) 'x))
+(debug (deriv '(* 2 (* x x)) 'x))
 (debug (deriv '(* x y) 'x))
 (debug (deriv '(* (* x y) (+ x 3)) 'x))
+
+(debug (deriv '(ln (+ 2 x)) 'x))
+(debug (deriv '(^ x 2) 'x))
+(debug (deriv '(/ (^ x 2) (+ x 1)) 'x))
+
+(deriv '(ln (+ 2 x)) 'x)
+(deriv '(^ x 2) 'x)
+(deriv '(/ (^ x 2) (+ x 1)) 'x)
