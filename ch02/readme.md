@@ -333,7 +333,22 @@ https://sarabander.github.io/sicp/html/2_002e3.xhtml#Quotation
 
 ### 2.3.2 Example: Symbolic Differentiation
 
+https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Symbolic-Differentiation
+
+> It was one of the motivating examples behind the development of a computer
+> language for symbol manipulation
+
+#### Exercises
+
+> TODO (tai): show these exercise and do something cool with symbolic math.
+
+- [ ] [2.56](./2.2/2.56.md)
+- [ ] [2.57](./2.2/2.57.md)
+- [ ] [2.58](./2.2/2.58.md)
+
 ### 2.3.3 Example: Representing Sets
+
+https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Representing-Sets
 
 ### 2.3.4 Example: Huffman Encoding Trees
 
