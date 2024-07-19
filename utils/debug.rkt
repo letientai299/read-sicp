@@ -1,7 +1,19 @@
 #lang racket
 
+(provide debugln)
 (provide debug)
 (provide show)
+
+(define-syntax debugln
+  (syntax-rules ()
+    [(_ arg) (debug-show-ln arg)]
+    [(_ arg more ...)
+     (let ()
+       (debug-show-ln arg)
+       (debugln more ...))]))
+
+(define-syntax-rule (debug-show-ln arg)
+  (show ">\e[0;34m" 'arg "\e[0m\n" arg))
 
 (define-syntax debug
   (syntax-rules ()

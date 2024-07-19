@@ -340,9 +340,9 @@ https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Symbolic-Diffe
 
 #### Exercises
 
-- [x] [2.56](./2.2/2.56.md)
-- [x] [2.57](./2.2/2.57.md)
-- [ ] [2.58](./2.2/2.58.md)
+- [x] [2.56](./2.3/2.56.md)
+- [x] [2.57](./2.3/2.57.md)
+- [ ] [2.58](./2.3/2.58.md)
 
 ### 2.3.3 Example: Representing Sets
 
