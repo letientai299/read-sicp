@@ -348,6 +348,17 @@ https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Symbolic-Diffe
 
 https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Representing-Sets
 
+#### Exercises
+
+- [x] [2.59](./2.3/2.59.md)
+- [x] [2.60](./2.3/2.60.md)
+- [ ] [2.61](./2.3/2.61.md)
+- [ ] [2.62](./2.3/2.62.md)
+- [ ] [2.63](./2.3/2.63.md)
+- [ ] [2.64](./2.3/2.64.md)
+- [ ] [2.65](./2.3/2.65.md)
+- [ ] [2.66](./2.3/2.66.md)
+
 ### 2.3.4 Example: Huffman Encoding Trees
 
 ## 2.4 Multiple Representations for Abstract Data

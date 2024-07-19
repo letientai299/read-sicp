@@ -44,7 +44,7 @@ const linkHandlers = [
 [...document.getElementsByTagName("pre")].forEach(enableCopyContent);
 
 function configExercise(a) {
-  enableCopyContent(a.parentNode.parentNode.parentNode);
+  enableCopyContent(a.parentNode.parentNode.parentNode, a.id);
 }
 
 function configFigure(a) {
@@ -66,9 +66,10 @@ function findHeader(from) {
   return h;
 }
 
-function enableCopyContent(elem) {
+function enableCopyContent(elem, id) {
   focusable(elem);
   handleIfMatch(elem, ["click", "keydown"], isExpected, () => {
+    remember(id);
     navigator.clipboard.writeText(elem.innerText);
   });
   highlight(elem);
@@ -80,15 +81,16 @@ function enableCopyLink(elem, id) {
   const loc = document.location;
   const url = `${loc.protocol}//${loc.host}${loc.pathname}#${id}`;
 
-  handleIfMatch(elem, ["click", "keydown"], isExpected, () =>
-    navigator.clipboard.writeText(url)
-  );
+  handleIfMatch(elem, ["click", "keydown"], isExpected, () => {
+    remember(id);
+    navigator.clipboard.writeText(url);
+  });
 }
 function highlight(elem) {
   handleIfMatch(
     elem,
     ["keypress", "keyup", "mouseup", "mousedown"],
-    true,
+    isExpected,
     (event) => {
       elem.style.opacity = ["keypress", "mousedown"].includes(event.type)
         ? 0.5
@@ -126,4 +128,35 @@ function isExpected(event) {
 
 function swallow(event) {
   event.stopPropagation();
+}
+
+document.addEventListener("keypress", (event) => {
+  if (event.code !== "KeyP" || !event.ctrlKey) {
+    return;
+  }
+  gotoPinned();
+});
+
+function gotoPinned() {
+  const id = localStorage.getItem("pin");
+  if (!id) {
+    return;
+  }
+
+  const elem = document.getElementById(id);
+  if (!elem) {
+    return;
+  }
+
+  elem.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+    inline: "center",
+  });
+}
+
+function remember(id) {
+  if (id) {
+    localStorage.setItem("pin", id);
+  }
 }
