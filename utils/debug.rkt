@@ -3,6 +3,11 @@
 (provide debugln)
 (provide debug)
 (provide show)
+(provide string-repeat)
+
+(provide save-md)
+(provide md-fence)
+(provide md-text)
 
 (define-syntax debugln
   (syntax-rules ()
@@ -33,3 +38,27 @@
     (display v)
     (display " "))
   (newline))
+
+(define (string-repeat str n)
+  (string-join (make-list n str) ""))
+
+;-----------------------------------------------------------
+; Support writing to markdown file
+;-----------------------------------------------------------
+
+(define md-text show)
+
+(define-syntax-rule (md-fence lang body...)
+  (let ()
+    (printf "```~a\n" lang)
+    body...
+    (printf "\n```\n")))
+
+(define-syntax save-md
+  (syntax-rules ()
+    [(_ file body ...)
+     (begin
+       (with-output-to-file file
+                            #:exists 'truncate/replace
+                            (lambda ()
+                              body ...)))]))

@@ -348,16 +348,38 @@ https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Symbolic-Diffe
 
 https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Representing-Sets
 
-#### Exercises
+[Sets as unordered lists](https://sarabander.github.io/sicp/html/2_002e3.xhtml#Sets-as-unordered-lists)
+
+- `in?`: $\Theta(n)$
+- `intersect`: $\Theta(n^2)$
+- `adjoin`: $\Theta(n)$
+- `union`: $\Theta(n^2)$
 
 - [x] [2.59](./2.3/2.59.md)
 - [x] [2.60](./2.3/2.60.md)
-- [ ] [2.61](./2.3/2.61.md)
-- [ ] [2.62](./2.3/2.62.md)
-- [ ] [2.63](./2.3/2.63.md)
-- [ ] [2.64](./2.3/2.64.md)
-- [ ] [2.65](./2.3/2.65.md)
-- [ ] [2.66](./2.3/2.66.md)
+
+[Sets as ordered lists](https://sarabander.github.io/sicp/html/2_002e3.xhtml#Sets-as-ordered-lists)
+
+> Speed up our set operations ... (by) listed in increasing order
+
+How? (I'm using shorter name for the 4 set operations described)
+
+- `in?`: $\approx\Theta(n/2)$, stop when see something greater than `x`
+- `adjoin`: $\Theta(n)$
+- `intersect` and `union`: $\Theta(n)$, 2 pointers
+
+- [x] [2.61](./2.3/2.61.md)
+- [x] [2.62](./2.3/2.62.md)
+
+[Sets as binary trees](https://sarabander.github.io/sicp/html/2_002e3.xhtml#Sets-as-binary-trees)
+
+- [x] [2.63](./2.3/2.63.md)
+- [x] [2.64](./2.3/2.64.md)
+- [x] [2.65](./2.3/2.65.md)
+
+[Sets and information retrieval](https://sarabander.github.io/sicp/html/2_002e3.xhtml#Sets-and-information-retrieval)
+
+- [x] [2.66](./2.3/2.66.md)
 
 ### 2.3.4 Example: Huffman Encoding Trees
 
