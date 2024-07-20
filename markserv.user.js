@@ -33,3 +33,9 @@ mermaid.initialize(config);
 }
 
 loadMermaid();
+
+// Add extra margin at the bottom the page to read the bottom text easier,
+// similar to how vim's zz handle the last line, or "Show virtual space at the
+// bottom of the file" in Jetrains IDE.
+// https://www.jetbrains.com/help/idea/settings-editor-general.html
+document.body.style.marginBottom = "50svh";

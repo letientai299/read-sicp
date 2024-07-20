@@ -1,13 +1,19 @@
 #lang racket
+(require racket/trace)
+(provide trace)
 
 (provide debugln)
 (provide debug)
 (provide show)
 (provide string-repeat)
 
+(provide pr-line)
+(provide pr-spaces)
 (provide save-md)
 (provide md-fence)
 (provide md-text)
+(provide md-table)
+(provide md-table-header)
 
 (define-syntax debugln
   (syntax-rules ()
@@ -62,3 +68,44 @@
                             #:exists 'truncate/replace
                             (lambda ()
                               body ...)))]))
+
+(struct md-table-header (name width))
+
+(define (md-table data headers . accessors)
+  (define getters
+    (if (empty? accessors)
+        (build-list (length headers) (curryr list-ref))
+        accessors))
+
+  (when (not (= (length headers) (length getters)))
+    (error "headers and accessors much has equal lengths"))
+
+  (define name md-table-header-name)
+  (define width md-table-header-width)
+  (define (col-width i)
+    (width (list-ref headers i)))
+  (define (prefix)
+    (printf "\n|"))
+
+  (prefix)
+  (define (out v n)
+    (printf " ~a |" (~a v #:width n)))
+
+  (for ([cfg headers])
+    (out (name cfg) (width cfg)))
+
+  (prefix)
+  (for ([cfg headers])
+    (out (pr-line (width cfg)) (width cfg)))
+
+  (for ([record data])
+    (prefix)
+    (for ([get getters] [i (in-naturals)])
+      (out (get record) (col-width i))))
+  (newline))
+
+(define (pr-line n)
+  (~a "" #:pad-string "-" #:width n))
+
+(define (pr-spaces n)
+  (~a "" #:pad-string " " #:width n))

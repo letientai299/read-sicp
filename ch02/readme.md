@@ -383,6 +383,31 @@ How? (I'm using shorter name for the 4 set operations described)
 
 ### 2.3.4 Example: Huffman Encoding Trees
 
+https://sarabander.github.io/sicp/html/2_002e3.xhtml#Example_003a-Huffman-Encoding-Trees
+
+- Variable-length code difficulties:
+  - Design for symbol appearance frequency.
+  - Know when we reach the end of a symbol.
+
+Huffman encoding:
+
+- Binary tree
+- Leaves are symbols, also contain assigned _weight_
+- Non-leaves are **sets** of children leaves' symbols, and their weight sum.
+- Weights are used only to construct the tree.
+
+How to construct the "best" code for a symbols and relative frequencies table?
+Let's stop reading and start [thinking](./huffman.md)...
+
+#### Exercises
+
+- [x] [2.67](./2.3/2.67.md)
+- [x] [2.68](./2.3/2.68.md)
+- [x] [2.69](./2.3/2.69.md)
+- [x] [2.70](./2.3/2.70.md)
+- [x] [2.71](./2.3/2.71.md)
+- [ ] [2.72](./2.3/2.72.md)
+
 ## 2.4 Multiple Representations for Abstract Data
 
 ### 2.4.1 Representations for Complex Numbers
