@@ -1,0 +1,47 @@
+" SICP
+
+iab ans ## Answer
+iab exs #### Exercises
+iab ldr #lang racket
+iab lrd #lang racket
+
+map Q o````scheme<cr><cr>```<esc>ka
+nnoremap M o$$<cr>$$<ESC>O
+
+" load the main readme file
+map <c-1> :e ./ch02/readme.md<cr>`.<esc>
+map <c-space> :s/\[.\]/\= submatch(0) == '[ ]' ? '[x]' : '[ ]'/<cr>
+
+command! Preview silent :!open http://localhost:8642/$(git ls-files --cached --others --full-name %)
+autocmd BufEnter *.md nmap <f36> :Preview<cr>
+
+command! Run silent :!echo % > $(git rev-parse --show-toplevel)/temp/run.txt
+autocmd BufEnter *.rkt nmap <f36> :Run<cr>
+
+" Add Markdown code-block delimiters to begin and end of current visual group.
+function! s:MarkCodeBlock(lang) abort
+    call append(line("'>"), '```')
+    call append(line("'<")-1, '```' . a:lang)
+endfunction
+
+
+" wrap with math
+nmap <c-'> ysiW$
+" wrap with code
+nmap <c-;> ysiW`
+" visually wrap with markdown code fence
+xnoremap <c-;> :<c-u>call <sid>MarkCodeBlock('scheme')<CR>
+
+" wrap the outer parenthese with one more parenthese
+nmap <c-0> ysa()
+
+" quote the scheme object.
+nmap <c-9> va(<esc>ysa('%lx`<
+
+" increase exercise index.
+nmap <C-=> yypf.<c-a>f)3b<c-a>
+
+xnoremap <c-k> :normal `<i[<esc>`>la]()<esc>i
+
+
+autocmd BufEnter *.rkt iab ru (require "../../utils/debug.rkt")
